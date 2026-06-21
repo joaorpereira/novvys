@@ -9,7 +9,8 @@ export const pt: Translations = {
   a11y: {
     skipToContent: "Ir para o conteúdo principal",
     socialLinks: "Redes sociais",
-    decorativeGlobe: "Globo digital animado — elemento decorativo",
+    heroImageAlt:
+      "Ecossistema digital com laptop, código, nuvem, dados e resultados — engenharia de software Novvys",
     linkedIn: "Novvys Engineering no LinkedIn (abre em nova aba)",
     gitHub: "Novvys Engineering no GitHub (abre em nova aba)",
     instagram: "Novvys Engineering no Instagram (abre em nova aba)",
@@ -43,6 +44,12 @@ export const pt: Translations = {
       { value: "80+", label: "Projetos" },
       { value: "99%", label: "Satisfação" },
       { value: "6+", label: "Anos" },
+    ],
+    trustLabel: "Indicadores de confiança",
+    trustBadges: [
+      { title: "99% Satisfação", subtitle: "Clientes recomendam" },
+      { title: "+80 Projetos", subtitle: "Entregues com excelência" },
+      { title: "Time Sênior", subtitle: "Especialistas certificados" },
     ],
     scrollLabel: "Scroll",
     scrollAria: "Rolar para métricas",

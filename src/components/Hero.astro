@@ -2,7 +2,7 @@
 import type { Locale } from "../i18n/config";
 import { useTranslations } from "../i18n";
 import Backdrop from "./Backdrop.astro";
-import HeroGlobe from "./islands/HeroGlobe";
+import HeroVisual from "./HeroVisual.astro";
 
 interface Props {
   locale: Locale;
@@ -59,10 +59,7 @@ const t = useTranslations(locale);
       </div>
 
       <div class="hero-visual">
-        <div class="hero-globe-fallback" aria-hidden="true"></div>
-        <div class="hero-globe-layer">
-          <HeroGlobe client:load />
-        </div>
+        <HeroVisual locale={locale} />
       </div>
     </div>
   </div>
@@ -209,42 +206,10 @@ const t = useTranslations(locale);
   .hero-visual {
     position: relative;
     width: 100%;
-    min-height: clamp(300px, 50vw, 540px);
+    min-height: clamp(280px, 38vw, 480px);
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .hero-globe-fallback {
-    position: absolute;
-    width: clamp(300px, 44vw, 520px);
-    height: clamp(300px, 44vw, 520px);
-    border-radius: 50%;
-    background:
-      radial-gradient(circle at 40% 35%, rgba(96, 165, 250, 0.3) 0%, transparent 50%),
-      radial-gradient(circle at 50% 50%, rgba(37, 99, 235, 0.2) 0%, transparent 65%);
-    box-shadow:
-      0 0 60px rgba(37, 99, 235, 0.25),
-      inset 0 0 40px rgba(37, 99, 235, 0.08);
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  .hero-globe-layer {
-    position: relative;
-    z-index: 2;
-    width: clamp(300px, 44vw, 520px);
-    height: clamp(300px, 44vw, 520px);
-    min-height: clamp(300px, 44vw, 520px);
-    margin: 0 auto;
-  }
-
-  .hero-globe-layer :global(astro-island),
-  .hero-globe-layer :global(.hero-globe) {
-    display: block;
-    width: 100%;
-    height: 100%;
-    min-height: inherit;
   }
 
   .scroll-cue {
@@ -317,12 +282,7 @@ const t = useTranslations(locale);
   @media (max-width: 1023px) {
     .hero-visual {
       order: -1;
-      min-height: clamp(260px, 60vw, 400px);
-    }
-
-    .hero-globe-layer {
-      width: clamp(240px, 65vw, 400px);
-      height: clamp(240px, 65vw, 400px);
+      min-height: clamp(220px, 55vw, 340px);
     }
 
     .scroll-cue {

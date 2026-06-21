@@ -6,7 +6,7 @@ export interface Translations {
   a11y: {
     skipToContent: string;
     socialLinks: string;
-    decorativeGlobe: string;
+    heroImageAlt: string;
     linkedIn: string;
     gitHub: string;
     instagram: string;
@@ -36,6 +36,8 @@ export interface Translations {
     ctaPrimary: string;
     ctaSecondary: string;
     highlights: { value: string; label: string }[];
+    trustLabel: string;
+    trustBadges: { title: string; subtitle: string }[];
     scrollLabel: string;
     scrollAria: string;
   };

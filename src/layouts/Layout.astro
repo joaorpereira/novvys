@@ -16,6 +16,8 @@ const canonicalUrl = new URL(getLocalePath(locale), SITE.url).href;
 const ogLocale = localeOgLocale[locale];
 const defaultUrl = new URL(getLocalePath(defaultLocale), SITE.url).href;
 
+const ogImage = new URL("/images/hero-tech-visual.png", SITE.url).href;
+
 const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
@@ -91,6 +93,8 @@ const structuredData = {
     <meta property="og:description" content={t.meta.description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:locale" content={ogLocale} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:alt" content={t.a11y.heroImageAlt} />
     {
       locales
         .filter((loc) => loc !== locale)
@@ -102,6 +106,8 @@ const structuredData = {
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={t.meta.title} />
     <meta name="twitter:description" content={t.meta.description} />
+    <meta name="twitter:image" content={ogImage} />
+    <meta name="twitter:image:alt" content={t.a11y.heroImageAlt} />
 
     <title>{t.meta.title}</title>
 
