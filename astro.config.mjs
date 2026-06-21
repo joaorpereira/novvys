@@ -6,8 +6,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://joaorpereira.github.io',
-  base: '/novvys/',
+  site: 'https://joaorpereira.github.io/novvys',
+  base: '/',
   integrations: [
     react(),
     sitemap({

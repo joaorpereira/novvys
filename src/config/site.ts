@@ -2,7 +2,7 @@ export const SITE = {
   name: "Novvys",
   legalName: "Novvys Engineering",
   tagline: "Software House",
-  url: "https://novvys.com",
+  url: "https://joaorpereira.github.io/novvys",
   email: "contato@novvys.com",
   phone: "+55-11-99999-9999",
   twitterHandle: "@novvys",
