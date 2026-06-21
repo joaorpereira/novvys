@@ -1,7 +1,10 @@
-# Builds the Astro site and publishes static files to the gh-pages branch.
-# GitHub Pages must deploy from the gh-pages branch (NOT main):
-# Settings → Pages → Deploy from branch → gh-pages / (root)
-name: Build and deploy to GitHub Pages
+# Official GitHub Pages deployment for Astro (no Jekyll).
+#
+# REQUIRED — one-time setup in GitHub:
+#   Settings → Pages → Build and deployment → Source → GitHub Actions
+#
+# Do NOT use "Deploy from a branch / main" — that triggers Jekyll and fails.
+name: Deploy Astro site to GitHub Pages
 
 on:
   push:
@@ -9,14 +12,21 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
+
+env:
+  # Force all JavaScript actions to Node 24 (Node 20 deprecated on runners)
+  # https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 concurrency:
-  group: gh-pages
+  group: pages
   cancel-in-progress: true
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -34,9 +44,18 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
-      - name: Publish dist to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v4.1.0
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-          publish_branch: gh-pages
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
