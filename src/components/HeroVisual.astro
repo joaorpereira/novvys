@@ -92,10 +92,12 @@ const badgeIcons = ["star", "check", "team"] as const;
   .hero-visual-wrap {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: auto;
     display: flex;
     align-items: center;
     justify-content: center;
+    padding: 0.5rem;
+    overflow: visible;
   }
 
   .hero-visual-glow {
@@ -139,9 +141,10 @@ const badgeIcons = ["star", "check", "team"] as const;
   .hero-visual-image {
     width: 100%;
     height: auto;
+    max-width: 100%;
     display: block;
     object-fit: contain;
-    aspect-ratio: 3 / 2;
+    object-position: center;
     filter: drop-shadow(0 20px 48px rgba(0, 0, 0, 0.45));
   }
 
@@ -170,22 +173,20 @@ const badgeIcons = ["star", "check", "team"] as const;
     max-width: 11.5rem;
   }
 
-  /* Left negative space — satisfaction */
+  /* Keep badges inside the image bounds so nothing gets clipped */
   .hero-trust-badge:nth-child(1) {
-    top: 6%;
-    left: 0;
+    top: 8%;
+    left: 4%;
   }
 
-  /* Right cluster — projects delivered */
   .hero-trust-badge:nth-child(2) {
-    top: 38%;
-    right: -2%;
+    top: 40%;
+    right: 4%;
   }
 
-  /* Lower-left — senior team, near analytics panel */
   .hero-trust-badge:nth-child(3) {
-    bottom: 14%;
-    left: 10%;
+    bottom: 12%;
+    left: 12%;
   }
 
   @keyframes badge-float {
@@ -234,18 +235,18 @@ const badgeIcons = ["star", "check", "team"] as const;
 
   @media (max-width: 1023px) {
     .hero-visual-frame {
-      max-width: 420px;
+      max-width: min(100%, 400px);
     }
 
     .hero-trust-badge:nth-child(1) {
-      top: 2%;
-      left: 0;
+      top: 4%;
+      left: 2%;
     }
 
     .hero-trust-badge:nth-child(2) {
       top: auto;
-      bottom: 6%;
-      right: 0;
+      bottom: 8%;
+      right: 2%;
     }
 
     .hero-trust-badge:nth-child(3) {

@@ -77,7 +77,8 @@ const t = useTranslations(locale);
     display: flex;
     align-items: center;
     padding: 6.5rem 0 4rem;
-    overflow: hidden;
+    overflow-x: clip;
+    overflow-y: visible;
     background: var(--bg-primary);
   }
 
@@ -206,10 +207,11 @@ const t = useTranslations(locale);
   .hero-visual {
     position: relative;
     width: 100%;
-    min-height: clamp(280px, 38vw, 480px);
+    min-height: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: visible;
   }
 
   .scroll-cue {
@@ -282,7 +284,6 @@ const t = useTranslations(locale);
   @media (max-width: 1023px) {
     .hero-visual {
       order: -1;
-      min-height: clamp(220px, 55vw, 340px);
     }
 
     .scroll-cue {
