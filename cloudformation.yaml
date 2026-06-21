@@ -7,6 +7,21 @@ Parameters:
     Description: Globally unique S3 bucket name (lowercase)
     AllowedPattern: "^[a-z0-9.-]{3,63}$"
     ConstraintDescription: Must be a valid S3 bucket name
+  AcmCertificateArn:
+    Type: String
+    Default: ""
+    Description: ACM certificate ARN in us-east-1 covering apex + www (leave empty for default CloudFront domain only)
+  ApexDomainName:
+    Type: String
+    Default: ""
+    Description: Apex domain to redirect to www (e.g. novvys.com). Leave empty to skip custom domains.
+  WwwDomainName:
+    Type: String
+    Default: ""
+    Description: Canonical www domain (e.g. www.novvys.com). Required when ApexDomainName is set.
+
+Conditions:
+  UseCustomDomain: !Not [!Equals [!Ref ApexDomainName, ""]]
 
 Resources:
   S3Bucket:
@@ -37,9 +52,39 @@ Resources:
       FunctionConfig:
         Comment: Map /en/ and folder paths to index.html for Astro static output
         Runtime: cloudfront-js-2.0
-      FunctionCode: |
+      FunctionCode: !Sub |
         function handler(event) {
           var request = event.request;
+          var host = request.headers.host && request.headers.host.value;
+          var apex = "${ApexDomainName}";
+          var www = "${WwwDomainName}";
+
+          if (apex && www && host === apex) {
+            var qs = request.querystring;
+            var query = "";
+            if (qs) {
+              var parts = [];
+              for (var key in qs) {
+                if (!Object.prototype.hasOwnProperty.call(qs, key)) continue;
+                if (qs[key].multiValue) {
+                  qs[key].multiValue.forEach(function(v) {
+                    parts.push(encodeURIComponent(key) + "=" + encodeURIComponent(v.value));
+                  });
+                } else if (qs[key].value !== undefined) {
+                  parts.push(encodeURIComponent(key) + "=" + encodeURIComponent(qs[key].value));
+                }
+              }
+              if (parts.length > 0) query = "?" + parts.join("&");
+            }
+            return {
+              statusCode: 301,
+              statusDescription: "Moved Permanently",
+              headers: {
+                location: { value: "https://" + www + request.uri + query }
+              }
+            };
+          }
+
           var uri = request.uri;
           if (uri.endsWith("/")) {
             request.uri += "index.html";
@@ -89,6 +134,17 @@ Resources:
       DistributionConfig:
         Comment: !Sub "Novvys website (${BucketName})"
         Enabled: true
+        Aliases: !If
+          - UseCustomDomain
+          - - !Ref ApexDomainName
+            - !Ref WwwDomainName
+          - !Ref AWS::NoValue
+        ViewerCertificate: !If
+          - UseCustomDomain
+          - AcmCertificateArn: !Ref AcmCertificateArn
+            MinimumProtocolVersion: TLSv1.2_2021
+            SslSupportMethod: sni-only
+          - CloudFrontDefaultCertificate: true
         DefaultRootObject: index.html
         HttpVersion: http2and3
         PriceClass: PriceClass_100

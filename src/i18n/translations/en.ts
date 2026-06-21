@@ -2,9 +2,9 @@ import type { Translations } from "../types";
 
 export const en: Translations = {
   meta: {
-    title: "Novvys — Software house for custom development",
+    title: "Novvys — Software house in Belo Horizonte | Custom development",
     description:
-      "Software house specializing in custom development, data platforms, and high-impact digital products for companies ready to scale.",
+      "Software house with a senior team of 3 developers and experience across 10+ projects. Custom software, data platforms, and digital products with quality and expertise in Belo Horizonte, Brazil.",
   },
   a11y: {
     skipToContent: "Skip to main content",
@@ -36,45 +36,43 @@ export const en: Translations = {
     languageMenu: "Available languages",
   },
   hero: {
-    badge: "Software House · Software · Data · UX",
+    badge: "3 Senior Devs · Software · Data · UX",
     title: "Your software house to build the",
     titleHighlight: "future.",
     subtitle:
-      "We are a software house. We build custom software, data platforms, and high-impact digital experiences for companies ready to scale with technology.",
+      "We are an emerging software house: 3 senior developers with experience across 10+ projects. We deliver custom software, data platforms, and digital products with technical expertise and a focus on quality.",
     ctaPrimary: "Explore services",
     ctaSecondary: "View cases",
     highlights: [
-      { value: "80+", label: "Projects" },
-      { value: "99%", label: "Satisfaction" },
-      { value: "6+", label: "Years" },
+      { value: "10+", label: "Projects" },
+      { value: "3", label: "Senior devs" },
+      { value: "100%", label: "Quality" },
     ],
     trustLabel: "Trust indicators",
     trustBadges: [
-      { title: "99% Satisfaction", subtitle: "Clients recommend us" },
-      { title: "80+ Projects", subtitle: "Delivered with excellence" },
-      { title: "Senior Team", subtitle: "Certified specialists" },
+      { title: "10+ Projects", subtitle: "Collective team experience" },
+      { title: "Senior Team", subtitle: "3 dedicated specialists" },
+      { title: "Quality", subtitle: "Engineering excellence" },
     ],
     scrollLabel: "Scroll",
     scrollAria: "Scroll to metrics",
   },
   clients: {
-    label: "Companies that trust us",
+    label: "Technologies we master",
   },
   stats: {
     ariaLabel: "Company metrics",
     items: [
       { label: "Projects delivered" },
-      { label: "Client satisfaction" },
-      { label: "Years of experience" },
-      { label: "Countries served" },
-      { label: "Senior team" },
+      { label: "Senior developers" },
+      { label: "Quality focus" },
     ],
   },
   services: {
     sectionLabel: "What we do",
-    title: "A full-stack software house for companies ready to scale",
+    title: "A lean software house for companies that value quality",
     description:
-      "As a software house, we combine software engineering, data, and design to deliver digital products that drive real business results.",
+      "A senior team of 3 developers with experience across 10+ projects. We combine software engineering, data, and design to deliver digital products with expertise and attention to detail.",
     learnMore: "Learn more about",
     items: [
       {
@@ -156,12 +154,12 @@ export const en: Translations = {
   cta: {
     title: "Let's build something incredible together?",
     subtitle:
-      "Talk to our experts and discover how we can accelerate your company's digital transformation.",
+      "Talk to our senior team and discover how we can help your company with quality software built by engineers who care about craft.",
     button: "Talk to an expert",
     ariaLabel: "Get in touch",
   },
   footer: {
-    desc: "A high-impact software house helping companies scale with custom software, data, and digital products.",
+    desc: "Software house in Belo Horizonte with a senior team of 3 developers. Experience across 10+ projects with a focus on quality in every delivery.",
     navigation: "Navigation",
     services: "Services",
     solutions: "Solutions",

@@ -56,6 +56,7 @@ const delay = index * 100;
     background: linear-gradient(135deg, rgba(37, 99, 235, 0.04) 0%, transparent 60%);
     opacity: 0;
     transition: opacity 0.3s;
+    pointer-events: none;
   }
 
   .blog-card:hover {
@@ -69,6 +70,8 @@ const delay = index * 100;
   }
 
   .blog-card-link {
+    position: relative;
+    z-index: 1;
     display: flex;
     flex-direction: column;
     gap: 0.875rem;

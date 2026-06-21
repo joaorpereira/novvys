@@ -8,6 +8,13 @@ export const SITE = {
   email: "joao@novvys.com",
   phone: "+55-11-99999-9999",
   twitterHandle: "@novvys",
+  location: {
+    city: "Belo Horizonte",
+    region: "MG",
+    country: "BR",
+  },
+  teamSize: 3,
+  projectsDelivered: 10,
 } as const;
 
 export const localeOgLocale = {

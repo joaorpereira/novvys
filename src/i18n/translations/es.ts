@@ -2,9 +2,9 @@ import type { Translations } from "../types";
 
 export const es: Translations = {
   meta: {
-    title: "Novvys — Software house de ingeniería de software",
+    title: "Novvys — Software house en Belo Horizonte | Desarrollo a medida",
     description:
-      "Software house especializada en desarrollo a medida, plataformas de datos y productos digitales de alto impacto para empresas que quieren escalar.",
+      "Software house con equipo sénior de 3 desarrolladores y experiencia en más de 10 proyectos. Desarrollo a medida, plataformas de datos y productos digitales con calidad y expertise en Belo Horizonte, Brasil.",
   },
   a11y: {
     skipToContent: "Ir al contenido principal",
@@ -36,45 +36,43 @@ export const es: Translations = {
     languageMenu: "Idiomas disponibles",
   },
   hero: {
-    badge: "Software House · Software · Datos · UX",
+    badge: "3 Devs Sénior · Software · Datos · UX",
     title: "Su software house para construir el",
     titleHighlight: "futuro.",
     subtitle:
-      "Somos una software house. Desarrollamos software a medida, plataformas de datos y experiencias digitales de alto impacto para empresas que quieren escalar con tecnología.",
+      "Somos una software house en formación: 3 desarrolladores sénior con experiencia en más de 10 proyectos. Entregamos software a medida, plataformas de datos y productos digitales con expertise técnica y foco en calidad.",
     ctaPrimary: "Conocer servicios",
     ctaSecondary: "Ver cases",
     highlights: [
-      { value: "80+", label: "Proyectos" },
-      { value: "99%", label: "Satisfacción" },
-      { value: "6+", label: "Años" },
+      { value: "10+", label: "Proyectos" },
+      { value: "3", label: "Devs sénior" },
+      { value: "100%", label: "Calidad" },
     ],
     trustLabel: "Indicadores de confianza",
     trustBadges: [
-      { title: "99% Satisfacción", subtitle: "Clientes nos recomiendan" },
-      { title: "+80 Proyectos", subtitle: "Entregados con excelencia" },
-      { title: "Equipo Sénior", subtitle: "Especialistas certificados" },
+      { title: "10+ Proyectos", subtitle: "Experiencia acumulada del equipo" },
+      { title: "Equipo Sénior", subtitle: "3 especialistas dedicados" },
+      { title: "Calidad", subtitle: "Ingeniería con excelencia" },
     ],
     scrollLabel: "Scroll",
     scrollAria: "Desplazar a métricas",
   },
   clients: {
-    label: "Empresas que confían en nosotros",
+    label: "Tecnologías que dominamos",
   },
   stats: {
     ariaLabel: "Métricas de la empresa",
     items: [
       { label: "Proyectos entregados" },
-      { label: "Satisfacción del cliente" },
-      { label: "Años de experiencia" },
-      { label: "Países atendidos" },
-      { label: "Equipo senior" },
+      { label: "Desarrolladores sénior" },
+      { label: "Foco en calidad" },
     ],
   },
   services: {
     sectionLabel: "Qué hacemos",
-    title: "Una software house completa para empresas que quieren escalar",
+    title: "Software house ágil para empresas que valoran la calidad",
     description:
-      "Como software house, combinamos ingeniería de software, datos y diseño para entregar productos digitales que generan resultados reales para su negocio.",
+      "Equipo sénior de 3 desarrolladores con experiencia en más de 10 proyectos. Combinamos ingeniería de software, datos y diseño para entregar productos digitales con expertise y atención al detalle.",
     learnMore: "Saber más sobre",
     items: [
       {
@@ -163,12 +161,12 @@ export const es: Translations = {
   cta: {
     title: "¿Construimos algo increíble juntos?",
     subtitle:
-      "Hable con nuestros expertos y descubra cómo podemos acelerar la transformación digital de su empresa.",
+      "Hable con nuestro equipo sénior y descubra cómo podemos ayudar a su empresa con software de calidad, hecho por quienes entienden de ingeniería.",
     button: "Hablar con un experto",
     ariaLabel: "Ponerse en contacto",
   },
   footer: {
-    desc: "Software house de ingeniería de software de alto impacto para empresas que quieren escalar con tecnología.",
+    desc: "Software house en Belo Horizonte con equipo sénior de 3 desarrolladores. Experiencia en más de 10 proyectos y foco en calidad en cada entrega.",
     navigation: "Navegación",
     services: "Servicios",
     solutions: "Soluciones",

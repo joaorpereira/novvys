@@ -12,9 +12,11 @@ export const localeLabels: Record<Locale, string> = {
 
 export const localeHtmlLang: Record<Locale, string> = {
   pt: "pt-BR",
-  en: "en",
-  es: "es",
+  en: "en-US",
+  es: "es-ES",
 };
+
+export const localeHrefLang: Record<Locale, string> = localeHtmlLang;
 
 export function getLocalePath(locale: Locale): string {
   return locale === defaultLocale ? "/" : `/${locale}/`;

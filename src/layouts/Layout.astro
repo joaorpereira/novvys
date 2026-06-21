@@ -1,10 +1,11 @@
 ---
 import type { Locale } from "../i18n/config";
-import { getLocalePath, localeHtmlLang, locales, defaultLocale } from "../i18n/config";
+import { getLocalePath, localeHtmlLang, localeHrefLang, locales, defaultLocale } from "../i18n/config";
 import { useTranslations } from "../i18n";
 import { SITE, localeOgLocale } from "../config/site";
 import { META_CONTENT_SECURITY_POLICY } from "../config/security-headers";
 import { absoluteUrl, withBase } from "../utils/urls";
+import { getAlternateUrls } from "../utils/seo";
 import "../styles/global.css";
 
 interface BlogPostSeo {
@@ -36,7 +37,6 @@ const t = useTranslations(locale);
 const lang = localeHtmlLang[locale];
 const siteUrl = absoluteUrl("/");
 const ogLocale = localeOgLocale[locale];
-const defaultUrl = absoluteUrl(getLocalePath(defaultLocale));
 const ogImage = absoluteUrl("images/hero-tech-visual.avif");
 const faviconUrl = withBase("favicon.svg");
 
@@ -45,6 +45,7 @@ const pageDescription = pageSeo?.description ?? t.meta.description;
 const canonicalUrl = pageSeo?.canonicalPath
   ? absoluteUrl(pageSeo.canonicalPath)
   : absoluteUrl(getLocalePath(locale));
+const alternateUrls = getAlternateUrls(pageSeo?.canonicalPath ?? getLocalePath(locale));
 const ogType = pageSeo?.type === "article" ? "article" : "website";
 
 const baseGraph = [
@@ -59,6 +60,27 @@ const baseGraph = [
     logo: absoluteUrl("favicon.svg"),
     email: SITE.email,
     telephone: SITE.phone,
+    numberOfEmployees: {
+      "@type": "QuantitativeValue",
+      value: SITE.teamSize,
+    },
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: SITE.location.city,
+      addressRegion: SITE.location.region,
+      addressCountry: SITE.location.country,
+    },
+    areaServed: {
+      "@type": "Country",
+      name: "Brazil",
+    },
+    knowsAbout: [
+      "Software Development",
+      "Cloud Infrastructure",
+      "Data Engineering",
+      "Mobile Applications",
+      "DevOps",
+    ],
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
@@ -195,12 +217,12 @@ const structuredData = buildStructuredData();
       locales.map((loc) => (
         <link
           rel="alternate"
-          hreflang={loc}
-          href={absoluteUrl(getLocalePath(loc))}
+          hreflang={localeHrefLang[loc]}
+          href={absoluteUrl(alternateUrls[loc])}
         />
       ))
     }
-    <link rel="alternate" hreflang="x-default" href={defaultUrl} />
+    <link rel="alternate" hreflang="x-default" href={absoluteUrl(alternateUrls[defaultLocale])} />
 
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={SITE.name} />
@@ -210,6 +232,8 @@ const structuredData = buildStructuredData();
     <meta property="og:locale" content={ogLocale} />
     <meta property="og:image" content={ogImage} />
     <meta property="og:image:alt" content={t.a11y.heroImageAlt} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     {pageSeo?.type === "article" && (
       <>
         <meta property="article:published_time" content={pageSeo.publishedTime} />
@@ -227,6 +251,7 @@ const structuredData = buildStructuredData();
     }
 
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content={SITE.twitterHandle} />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
     <meta name="twitter:image" content={ogImage} />

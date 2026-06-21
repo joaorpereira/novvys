@@ -2,9 +2,9 @@ import type { Translations } from "./types";
 
 export const pt: Translations = {
   meta: {
-    title: "Novvys — Software house de engenharia de software",
+    title: "Novvys — Software house em Belo Horizonte | Desenvolvimento sob medida",
     description:
-      "Software house especializada em desenvolvimento sob medida, plataformas de dados e produtos digitais de alto impacto para empresas que querem escalar.",
+      "Software house com time sênior de 3 desenvolvedores e experiência em 10+ projetos. Desenvolvimento sob medida, dados e produtos digitais com qualidade e expertise em Belo Horizonte, Brasil.",
   },
   a11y: {
     skipToContent: "Ir para o conteúdo principal",
@@ -36,45 +36,43 @@ export const pt: Translations = {
     languageMenu: "Idiomas disponíveis",
   },
   hero: {
-    badge: "Software House · Software · Dados · UX",
+    badge: "3 Devs Sênior · Software · Dados · UX",
     title: "Sua software house para construir o",
     titleHighlight: "futuro.",
     subtitle:
-      "Somos uma software house. Desenvolvemos software sob medida, plataformas de dados e experiências digitais de alto impacto para empresas que querem escalar com tecnologia.",
+      "Somos uma software house em formação: 3 desenvolvedores sênior com experiência em mais de 10 projetos. Entregamos software sob medida, plataformas de dados e produtos digitais com expertise técnica e foco em qualidade.",
     ctaPrimary: "Conhecer serviços",
     ctaSecondary: "Ver cases",
     highlights: [
-      { value: "80+", label: "Projetos" },
-      { value: "99%", label: "Satisfação" },
-      { value: "6+", label: "Anos" },
+      { value: "10+", label: "Projetos" },
+      { value: "3", label: "Devs sênior" },
+      { value: "100%", label: "Qualidade" },
     ],
     trustLabel: "Indicadores de confiança",
     trustBadges: [
-      { title: "99% Satisfação", subtitle: "Clientes recomendam" },
-      { title: "+80 Projetos", subtitle: "Entregues com excelência" },
-      { title: "Time Sênior", subtitle: "Especialistas certificados" },
+      { title: "10+ Projetos", subtitle: "Experiência acumulada do time" },
+      { title: "Time Sênior", subtitle: "3 especialistas dedicados" },
+      { title: "Qualidade", subtitle: "Engenharia com excelência" },
     ],
     scrollLabel: "Scroll",
     scrollAria: "Rolar para métricas",
   },
   clients: {
-    label: "Empresas que confiam em nós",
+    label: "Tecnologias que dominamos",
   },
   stats: {
     ariaLabel: "Métricas da empresa",
     items: [
       { label: "Projetos entregues" },
-      { label: "Satisfação dos clientes" },
-      { label: "Anos de experiência" },
-      { label: "Países atendidos" },
-      { label: "Time sênior" },
+      { label: "Desenvolvedores sênior" },
+      { label: "Foco em qualidade" },
     ],
   },
   services: {
     sectionLabel: "O que fazemos",
-    title: "Uma software house completa para empresas que querem escalar",
+    title: "Software house enxuta para empresas que valorizam qualidade",
     description:
-      "Como software house, combinamos engenharia de software, dados e design para entregar produtos digitais que geram resultados reais para o seu negócio.",
+      "Time sênior de 3 desenvolvedores com experiência em 10+ projetos. Combinamos engenharia de software, dados e design para entregar produtos digitais com expertise e atenção aos detalhes.",
     learnMore: "Saiba mais sobre",
     items: [
       {
@@ -163,12 +161,12 @@ export const pt: Translations = {
   cta: {
     title: "Vamos construir algo incrível juntos?",
     subtitle:
-      "Fale com nossos especialistas e descubra como podemos acelerar a transformação digital da sua empresa.",
+      "Fale com nosso time sênior e descubra como podemos ajudar sua empresa com software de qualidade, feito por quem entende de engenharia.",
     button: "Falar com especialista",
     ariaLabel: "Entre em contato",
   },
   footer: {
-    desc: "Software house de engenharia de software de alto impacto para empresas que querem escalar com tecnologia.",
+    desc: "Software house em Belo Horizonte com time sênior de 3 desenvolvedores. Experiência em 10+ projetos e foco em qualidade em cada entrega.",
     navigation: "Navegação",
     services: "Serviços",
     solutions: "Soluções",

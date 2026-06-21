@@ -3,11 +3,9 @@ export const serviceIcons = ["code", "mobile", "cloud", "api", "data", "support"
 export const stepIcons = ["search", "plan", "dev", "deploy", "evolve"] as const;
 
 export const statData = [
-  { target: 80, suffix: "+", icon: "projects" },
-  { target: 99, suffix: "%", icon: "star" },
-  { target: 6, suffix: "+", icon: "clock" },
-  { target: 4, suffix: "", icon: "globe" },
-  { target: 100, suffix: "%", icon: "team" },
+  { target: 10, suffix: "+", icon: "projects" },
+  { target: 3, suffix: "", icon: "team" },
+  { target: 100, suffix: "%", icon: "star" },
 ] as const;
 
 export const caseGradients = [
@@ -17,12 +15,12 @@ export const caseGradients = [
 ] as const;
 
 export const clients = [
-  "Fintech Corp",
-  "LogiTech",
-  "HealthPlus",
-  "DataFlow",
-  "CloudScale",
-  "RetailPro",
+  "React",
+  "TypeScript",
+  "Node.js",
+  "PostgreSQL",
+  "AWS",
+  "Python",
 ] as const;
 
 export const stepNumbers = ["01", "02", "03", "04", "05"] as const;

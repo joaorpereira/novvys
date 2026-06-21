@@ -31,10 +31,16 @@ fi
 echo "==> Deploying CloudFormation stack: ${STACK_NAME} (${REGION})"
 echo "    S3 bucket: ${BUCKET_NAME}"
 
+CF_PARAMS="BucketName=${BUCKET_NAME}"
+if [[ -n "${APEX_DOMAIN:-}" && -n "${WWW_DOMAIN:-}" && -n "${ACM_CERTIFICATE_ARN:-}" ]]; then
+  CF_PARAMS="${CF_PARAMS} ApexDomainName=${APEX_DOMAIN} WwwDomainName=${WWW_DOMAIN} AcmCertificateArn=${ACM_CERTIFICATE_ARN}"
+  echo "    Custom domain: ${APEX_DOMAIN} -> ${WWW_DOMAIN}"
+fi
+
 aws cloudformation deploy \
   --template-file cloudformation.yaml \
   --stack-name "$STACK_NAME" \
-  --parameter-overrides "BucketName=${BUCKET_NAME}" \
+  --parameter-overrides ${CF_PARAMS} \
   --capabilities CAPABILITY_IAM \
   --region "$REGION" \
   --profile "$AWS_PROFILE"
@@ -51,7 +57,13 @@ DISTRIBUTION_ID="$(aws cloudformation describe-stacks \
   --profile "$AWS_PROFILE" \
   --query "Stacks[0].Outputs[?OutputKey=='DistributionId'].OutputValue" \
   --output text)"
-SITE_URL="${SITE_URL:-https://${CF_URL}}"
+if [[ -n "${SITE_URL:-}" ]]; then
+  :
+elif [[ -n "${WWW_DOMAIN:-}" ]]; then
+  SITE_URL="https://${WWW_DOMAIN}"
+else
+  SITE_URL="https://${CF_URL}"
+fi
 BASE_PATH="${BASE_PATH:-/}"
 
 if [[ -f .nvmrc ]]; then
