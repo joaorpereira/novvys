@@ -13,14 +13,12 @@ interface Props {
 const { locale } = Astro.props;
 const t = useTranslations(locale);
 const lang = localeHtmlLang[locale];
-const baseUrl = import.meta.env.BASE_URL;
-const site = import.meta.env.SITE;
-const siteUrl = absoluteUrl(site, baseUrl, "/");
-const canonicalUrl = absoluteUrl(site, baseUrl, getLocalePath(locale));
+const siteUrl = absoluteUrl("/");
+const canonicalUrl = absoluteUrl(getLocalePath(locale));
 const ogLocale = localeOgLocale[locale];
-const defaultUrl = absoluteUrl(site, baseUrl, getLocalePath(defaultLocale));
-const ogImage = absoluteUrl(site, baseUrl, "images/hero-tech-visual.png");
-const faviconUrl = withBase(baseUrl, "favicon.svg");
+const defaultUrl = absoluteUrl(getLocalePath(defaultLocale));
+const ogImage = absoluteUrl("images/hero-tech-visual.png");
+const faviconUrl = withBase("favicon.svg");
 
 const structuredData = {
   "@context": "https://schema.org",
@@ -33,7 +31,7 @@ const structuredData = {
       slogan: SITE.tagline,
       description: t.meta.description,
       url: siteUrl,
-      logo: absoluteUrl(site, baseUrl, "favicon.svg"),
+      logo: absoluteUrl("favicon.svg"),
       email: SITE.email,
       telephone: SITE.phone,
       contactPoint: {
@@ -74,7 +72,6 @@ const structuredData = {
     <meta name="robots" content="index, follow" />
     <meta name="author" content={SITE.name} />
     <meta name="theme-color" content="#07111f" />
-    <meta name="debug-base" content={baseUrl} />
     <link rel="icon" type="image/svg+xml" href={faviconUrl} />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -89,7 +86,7 @@ const structuredData = {
         <link
           rel="alternate"
           hreflang={loc}
-          href={absoluteUrl(site, baseUrl, getLocalePath(loc))}
+          href={absoluteUrl(getLocalePath(loc))}
         />
       ))
     }

@@ -3,11 +3,12 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
+import { DEPLOY_BASE, DEPLOY_SITE } from './deploy.config.mjs';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://joaorpereira.github.io',
-  base: '/novvys/',
+  site: DEPLOY_SITE,
+  base: DEPLOY_BASE,
   integrations: [
     react(),
     sitemap({
