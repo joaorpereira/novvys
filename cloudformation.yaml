@@ -21,7 +21,10 @@ Parameters:
     Description: Canonical www domain (e.g. www.novvys.com). Required when ApexDomainName is set.
 
 Conditions:
-  UseCustomDomain: !Not [!Equals [!Ref ApexDomainName, ""]]
+  UseCustomDomain: !And
+    - !Not [!Equals [!Ref ApexDomainName, ""]]
+    - !Not [!Equals [!Ref WwwDomainName, ""]]
+    - !Not [!Equals [!Ref AcmCertificateArn, ""]]
 
 Resources:
   S3Bucket:
@@ -60,27 +63,12 @@ Resources:
           var www = "${WwwDomainName}";
 
           if (apex && www && host === apex) {
-            var qs = request.querystring;
-            var query = "";
-            if (qs) {
-              var parts = [];
-              for (var key in qs) {
-                if (!Object.prototype.hasOwnProperty.call(qs, key)) continue;
-                if (qs[key].multiValue) {
-                  qs[key].multiValue.forEach(function(v) {
-                    parts.push(encodeURIComponent(key) + "=" + encodeURIComponent(v.value));
-                  });
-                } else if (qs[key].value !== undefined) {
-                  parts.push(encodeURIComponent(key) + "=" + encodeURIComponent(qs[key].value));
-                }
-              }
-              if (parts.length > 0) query = "?" + parts.join("&");
-            }
             return {
               statusCode: 301,
               statusDescription: "Moved Permanently",
               headers: {
-                location: { value: "https://" + www + request.uri + query }
+                location: { value: "https://" + www + request.uri },
+                "cache-control": { value: "max-age=3600" }
               }
             };
           }
@@ -208,3 +196,6 @@ Outputs:
   BucketName:
     Description: S3 bucket name
     Value: !Ref S3Bucket
+  CustomDomainConfigured:
+    Description: Whether alternate domain names and ACM cert are attached to CloudFront
+    Value: !If [UseCustomDomain, "yes", "no — set APEX_DOMAIN, WWW_DOMAIN, ACM_CERTIFICATE_ARN in .env and redeploy"]

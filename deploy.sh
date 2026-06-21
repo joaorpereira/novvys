@@ -32,9 +32,17 @@ echo "==> Deploying CloudFormation stack: ${STACK_NAME} (${REGION})"
 echo "    S3 bucket: ${BUCKET_NAME}"
 
 CF_PARAMS="BucketName=${BUCKET_NAME}"
-if [[ -n "${APEX_DOMAIN:-}" && -n "${WWW_DOMAIN:-}" && -n "${ACM_CERTIFICATE_ARN:-}" ]]; then
+if [[ -n "${APEX_DOMAIN:-}" || -n "${WWW_DOMAIN:-}" || -n "${ACM_CERTIFICATE_ARN:-}" ]]; then
+  if [[ -z "${APEX_DOMAIN:-}" || -z "${WWW_DOMAIN:-}" || -z "${ACM_CERTIFICATE_ARN:-}" ]]; then
+    echo "Error: Custom domain requires all three in .env: APEX_DOMAIN, WWW_DOMAIN, ACM_CERTIFICATE_ARN"
+    exit 1
+  fi
   CF_PARAMS="${CF_PARAMS} ApexDomainName=${APEX_DOMAIN} WwwDomainName=${WWW_DOMAIN} AcmCertificateArn=${ACM_CERTIFICATE_ARN}"
   echo "    Custom domain: ${APEX_DOMAIN} -> ${WWW_DOMAIN}"
+else
+  echo "    WARNING: Deploying without custom domains on CloudFront."
+  echo "             If DNS points novvys.com to this distribution, the site will return 403."
+  echo "             Add APEX_DOMAIN, WWW_DOMAIN, ACM_CERTIFICATE_ARN to .env and redeploy."
 fi
 
 aws cloudformation deploy \
