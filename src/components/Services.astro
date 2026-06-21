@@ -1,40 +1,48 @@
 ---
-import { services } from "../data/site";
+import type { Locale } from "../i18n/config";
+import { useTranslations } from "../i18n";
+import { serviceIcons } from "../data/content";
 import Icon from "./Icon.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
 ---
 
 <section class="services" id="servicos" aria-labelledby="services-heading">
   <div class="container">
     <div class="services-header">
       <div class="services-intro reveal">
-        <span class="section-label">O que fazemos</span>
+        <span class="section-label">{t.services.sectionLabel}</span>
         <h2 class="services-title" id="services-heading">
-          Soluções completas para empresas que querem escalar
+          {t.services.title}
         </h2>
       </div>
 
       <p class="services-desc reveal" style="--reveal-delay: 150ms">
-        Combinamos engenharia de software, dados e design para entregar
-        produtos digitais que geram resultados reais para o seu negócio.
+        {t.services.description}
       </p>
     </div>
 
     <div class="services-grid">
       {
-        services.map((service, index) => (
+        t.services.items.map((service, index) => (
           <article
             class="service-card reveal"
             style={`--reveal-delay: ${index * 80}ms`}
           >
             <div class="service-icon">
-              <Icon name={service.icon} size={28} />
+              <Icon name={serviceIcons[index]} size={28} />
             </div>
             <h3 class="service-title">{service.title}</h3>
             <p class="service-desc">{service.description}</p>
             <a
               href="#contato"
               class="service-link"
-              aria-label={`Saiba mais sobre ${service.title}`}
+              aria-label={`${t.services.learnMore} ${service.title}`}
             >
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                 <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />

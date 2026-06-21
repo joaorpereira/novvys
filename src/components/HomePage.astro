@@ -1,0 +1,31 @@
+---
+import type { Locale } from "../i18n/config";
+import Layout from "../layouts/Layout.astro";
+import Header from "./Header.astro";
+import Hero from "./Hero.astro";
+import Stats from "./Stats.astro";
+import Services from "./Services.astro";
+import Cases from "./Cases.astro";
+import Process from "./Process.astro";
+import CTA from "./CTA.astro";
+import Footer from "./Footer.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<Layout locale={locale}>
+  <Header locale={locale} />
+  <main>
+    <Hero locale={locale} />
+    <Stats locale={locale} />
+    <Services locale={locale} />
+    <Cases locale={locale} />
+    <Process locale={locale} />
+    <CTA locale={locale} />
+  </main>
+  <Footer locale={locale} />
+</Layout>

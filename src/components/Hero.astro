@@ -1,8 +1,16 @@
 ---
+import type { Locale } from "../i18n/config";
+import { useTranslations } from "../i18n";
 import Backdrop from "./Backdrop.astro";
 import ClientsStrip from "./ClientsStrip.astro";
 import GlobeCanvas from "./islands/GlobeCanvas";
-import { heroHighlights } from "../data/site";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
 ---
 
 <section class="hero" id="hero">
@@ -14,28 +22,26 @@ import { heroHighlights } from "../data/site";
     <div class="hero-content">
       <div class="hero-badge hero-enter">
         <span class="hero-badge-dot" aria-hidden="true"></span>
-        Software · Dados · Experiências
+        {t.hero.badge}
       </div>
 
       <h1 class="hero-title hero-enter">
-        Tecnologia que constrói o <span class="hero-highlight">futuro.</span>
+        {t.hero.title} <span class="hero-highlight">{t.hero.titleHighlight}</span>
       </h1>
 
       <p class="hero-subtitle hero-enter">
-        Desenvolvemos software sob medida, plataformas de dados e experiências
-        digitais de alto impacto para empresas que querem escalar com
-        tecnologia.
+        {t.hero.subtitle}
       </p>
 
       <div class="hero-buttons hero-enter">
         <a href="#servicos" class="btn-primary hero-btn-primary">
-          Conhecer serviços
+          {t.hero.ctaPrimary}
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
           </svg>
         </a>
         <a href="#cases" class="btn-outline">
-          Ver cases
+          {t.hero.ctaSecondary}
           <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.5" />
             <path d="M6.5 8L8 9.5L10.5 6.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -45,7 +51,7 @@ import { heroHighlights } from "../data/site";
 
       <div class="hero-highlights hero-enter">
         {
-          heroHighlights.map((item) => (
+          t.hero.highlights.map((item) => (
             <div class="hero-highlight-item">
               <span class="hero-highlight-value">{item.value}</span>
               <span class="hero-highlight-label">{item.label}</span>
@@ -67,10 +73,10 @@ import { heroHighlights } from "../data/site";
     </div>
   </div>
 
-  <ClientsStrip />
+  <ClientsStrip locale={locale} />
 
-  <a href="#stats" class="scroll-cue" aria-label="Rolar para métricas">
-    <span class="scroll-cue-text">Scroll</span>
+  <a href="#stats" class="scroll-cue" aria-label={t.hero.scrollAria}>
+    <span class="scroll-cue-text">{t.hero.scrollLabel}</span>
     <span class="scroll-cue-line"></span>
   </a>
 </section>

@@ -1,6 +1,16 @@
 ---
-import { navLinks, serviceLinks, solutionLinks } from "../data/site";
+import type { Locale } from "../i18n/config";
+import { getLocalePath } from "../i18n/config";
+import { getNavLinks, useTranslations } from "../i18n";
 
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const navLinks = getNavLinks(t);
+const homePath = getLocalePath(locale);
 const currentYear = new Date().getFullYear();
 ---
 
@@ -8,14 +18,11 @@ const currentYear = new Date().getFullYear();
   <div class="container">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="/" class="footer-logo" aria-label="Novvys Engineering">
+        <a href={homePath} class="footer-logo" aria-label={t.footer.logoAria}>
           <span class="footer-logo-icon" aria-hidden="true">N</span>
           <span>NOVVYS ENGINEERING</span>
         </a>
-        <p class="footer-desc">
-          Engenharia de software de alto impacto para empresas que querem
-          escalar com tecnologia.
-        </p>
+        <p class="footer-desc">{t.footer.desc}</p>
         <div class="footer-socials">
           <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
@@ -40,7 +47,7 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <div class="footer-col">
-        <h3 class="footer-col-title">Navegação</h3>
+        <h3 class="footer-col-title">{t.footer.navigation}</h3>
         <ul class="footer-links">
           {navLinks.map((link) => (
             <li><a href={link.href}>{link.label}</a></li>
@@ -49,38 +56,38 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <div class="footer-col">
-        <h3 class="footer-col-title">Serviços</h3>
+        <h3 class="footer-col-title">{t.footer.services}</h3>
         <ul class="footer-links">
-          {serviceLinks.map((link) => (
+          {t.footer.serviceLinks.map((link) => (
             <li><a href="#servicos">{link}</a></li>
           ))}
         </ul>
       </div>
 
       <div class="footer-col">
-        <h3 class="footer-col-title">Soluções</h3>
+        <h3 class="footer-col-title">{t.footer.solutions}</h3>
         <ul class="footer-links">
-          {solutionLinks.map((link) => (
+          {t.footer.solutionLinks.map((link) => (
             <li><a href="#solucoes">{link}</a></li>
           ))}
         </ul>
       </div>
 
       <div class="footer-col">
-        <h3 class="footer-col-title">Contato</h3>
+        <h3 class="footer-col-title">{t.footer.contact}</h3>
         <ul class="footer-links footer-contact">
           <li><a href="mailto:contato@novvys.com">contato@novvys.com</a></li>
           <li><a href="tel:+5511999999999">+55 (11) 99999-9999</a></li>
-          <li>São Paulo, Brasil</li>
+          <li>{t.footer.location}</li>
         </ul>
       </div>
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; {currentYear} Novvys Engineering. Todos os direitos reservados.</p>
+      <p>&copy; {currentYear} {t.footer.copyright}</p>
       <div class="footer-legal">
-        <a href="#privacidade">Política de Privacidade</a>
-        <a href="#termos">Termos de Uso</a>
+        <a href="#privacidade">{t.footer.privacy}</a>
+        <a href="#termos">{t.footer.terms}</a>
       </div>
     </div>
   </div>

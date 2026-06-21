@@ -1,13 +1,22 @@
 ---
-import { stats } from "../data/site";
+import type { Locale } from "../i18n/config";
+import { useTranslations } from "../i18n";
+import { statData } from "../data/content";
 import Icon from "./Icon.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
 ---
 
-<section class="stats-bar" id="stats" aria-label="Métricas da empresa">
+<section class="stats-bar" id="stats" aria-label={t.stats.ariaLabel}>
   <div class="stats-bar-bg" aria-hidden="true"></div>
   <div class="container stats-inner">
     {
-      stats.map((stat, index) => (
+      statData.map((stat, index) => (
         <div class="stat-item reveal" style={`--reveal-delay: ${index * 100}ms`}>
           <div class="stat-icon">
             <Icon name={stat.icon} size={24} />
@@ -19,7 +28,7 @@ import Icon from "./Icon.astro";
           >
             0{stat.suffix}
           </div>
-          <div class="stat-label">{stat.label}</div>
+          <div class="stat-label">{t.stats.items[index].label}</div>
         </div>
       ))
     }

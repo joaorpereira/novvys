@@ -1,13 +1,22 @@
 ---
-import { steps } from "../data/site";
+import type { Locale } from "../i18n/config";
+import { useTranslations } from "../i18n";
+import { stepIcons, stepNumbers } from "../data/content";
 import Icon from "./Icon.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
 ---
 
 <section class="process" id="processo">
   <div class="container">
     <div class="process-header reveal">
-      <span class="section-label">Como trabalhamos</span>
-      <h2 class="process-title">Um processo ágil, transparente e eficiente</h2>
+      <span class="section-label">{t.process.sectionLabel}</span>
+      <h2 class="process-title">{t.process.title}</h2>
     </div>
 
     <div class="process-timeline">
@@ -17,17 +26,17 @@ import Icon from "./Icon.astro";
 
       <div class="process-steps">
         {
-          steps.map((step, index) => (
+          t.process.steps.map((step, index) => (
             <div
               class="process-step reveal"
               style={`--reveal-delay: ${index * 150}ms`}
             >
               <div class="step-icon-wrap">
                 <div class="step-icon">
-                  <Icon name={step.icon} size={24} />
+                  <Icon name={stepIcons[index]} size={24} />
                 </div>
               </div>
-              <span class="step-number">{step.number}</span>
+              <span class="step-number">{stepNumbers[index]}</span>
               <h3 class="step-title">{step.title}</h3>
               <p class="step-desc">{step.description}</p>
             </div>

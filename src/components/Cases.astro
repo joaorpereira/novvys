@@ -1,5 +1,14 @@
 ---
-import { cases } from "../data/site";
+import type { Locale } from "../i18n/config";
+import { useTranslations } from "../i18n";
+import { caseGradients } from "../data/content";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
 ---
 
 <section class="cases" id="cases" aria-labelledby="cases-heading">
@@ -7,12 +16,12 @@ import { cases } from "../data/site";
   <div class="container">
     <div class="cases-header">
       <div class="reveal">
-        <span class="section-label">Cases de sucesso</span>
-        <h2 class="cases-title" id="cases-heading">Resultados que geram impacto</h2>
+        <span class="section-label">{t.cases.sectionLabel}</span>
+        <h2 class="cases-title" id="cases-heading">{t.cases.title}</h2>
       </div>
 
       <a href="#cases" class="cases-link reveal" style="--reveal-delay: 150ms">
-        Ver todos os cases
+        {t.cases.viewAll}
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
@@ -21,17 +30,21 @@ import { cases } from "../data/site";
 
     <div class="cases-grid">
       {
-        cases.map((caseItem, index) => (
+        t.cases.items.map((caseItem, index) => (
           <article
             class="case-card reveal-left"
-            style={`background: ${caseItem.gradient}; --reveal-delay: ${index * 120}ms`}
+            style={`background: ${caseGradients[index]}; --reveal-delay: ${index * 120}ms`}
           >
             <div class="case-overlay"></div>
             <div class="case-content">
               <span class="case-tag">{caseItem.tag}</span>
               <h3 class="case-title">{caseItem.title}</h3>
               <p class="case-desc">{caseItem.description}</p>
-              <a href="#contato" class="case-arrow" aria-label={`Ver case ${caseItem.title}`}>
+              <a
+                href="#contato"
+                class="case-arrow"
+                aria-label={`${t.cases.viewCase} ${caseItem.title}`}
+              >
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                   <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>

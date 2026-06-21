@@ -1,15 +1,27 @@
 ---
-import { navLinks } from "../data/site";
+import type { Locale } from "../i18n/config";
+import { getLocalePath } from "../i18n/config";
+import { getNavLinks, useTranslations } from "../i18n";
+import LanguageSwitcher from "./LanguageSwitcher.astro";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const navLinks = getNavLinks(t);
+const homePath = getLocalePath(locale);
 ---
 
 <header class="header" id="header">
   <div class="container header-inner">
-    <a href="/" class="logo" aria-label="Novvys Engineering — Início">
+    <a href={homePath} class="logo" aria-label={t.header.logoAria}>
       <span class="logo-icon" aria-hidden="true">N</span>
       <span class="logo-text">NOVVYS ENGINEERING</span>
     </a>
 
-    <nav class="nav-desktop" aria-label="Navegação principal">
+    <nav class="nav-desktop" aria-label={t.header.navAria}>
       {
         navLinks.map((link) => (
           <a href={link.href} class="nav-link">
@@ -20,21 +32,18 @@ import { navLinks } from "../data/site";
     </nav>
 
     <div class="header-actions">
-      <a href="#contato" class="btn-outline header-cta">Falar com especialista</a>
-      <button class="lang-toggle" type="button" aria-label="Selecionar idioma">
-        PT
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
-          <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-        </svg>
-      </button>
+      <a href="#contato" class="btn-outline header-cta">{t.nav.cta}</a>
+      <LanguageSwitcher locale={locale} label={t.header.selectLanguage} />
 
       <button
         class="menu-toggle"
         type="button"
-        aria-label="Abrir menu"
+        aria-label={t.header.openMenu}
         aria-expanded="false"
         aria-controls="mobile-menu"
         id="menu-toggle"
+        data-open-label={t.header.openMenu}
+        data-close-label={t.header.closeMenu}
       >
         <span class="menu-bar"></span>
         <span class="menu-bar"></span>
@@ -43,7 +52,7 @@ import { navLinks } from "../data/site";
     </div>
   </div>
 
-  <nav class="nav-mobile" id="mobile-menu" aria-label="Menu mobile" hidden>
+  <nav class="nav-mobile" id="mobile-menu" aria-label={t.header.mobileNavAria} hidden>
     <div class="container nav-mobile-inner">
       {
         navLinks.map((link) => (
@@ -52,7 +61,7 @@ import { navLinks } from "../data/site";
           </a>
         ))
       }
-      <a href="#contato" class="btn-primary nav-mobile-cta">Falar com especialista</a>
+      <a href="#contato" class="btn-primary nav-mobile-cta">{t.nav.cta}</a>
     </div>
   </nav>
 </header>
@@ -64,6 +73,8 @@ import { navLinks } from "../data/site";
 
   if (header && menuToggle && mobileMenu) {
     const mobileLinks = mobileMenu.querySelectorAll("a");
+    const openLabel = menuToggle.dataset.openLabel ?? "Open menu";
+    const closeLabel = menuToggle.dataset.closeLabel ?? "Close menu";
 
     const handleScroll = () => {
       header.classList.toggle("header-scrolled", window.scrollY > 20);
@@ -71,7 +82,7 @@ import { navLinks } from "../data/site";
 
     const closeMenu = () => {
       menuToggle.setAttribute("aria-expanded", "false");
-      menuToggle.setAttribute("aria-label", "Abrir menu");
+      menuToggle.setAttribute("aria-label", openLabel);
       mobileMenu.hidden = true;
       document.body.style.overflow = "";
     };
@@ -79,7 +90,7 @@ import { navLinks } from "../data/site";
     menuToggle.addEventListener("click", () => {
       const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
       menuToggle.setAttribute("aria-expanded", String(!isOpen));
-      menuToggle.setAttribute("aria-label", isOpen ? "Abrir menu" : "Fechar menu");
+      menuToggle.setAttribute("aria-label", isOpen ? openLabel : closeLabel);
       mobileMenu.hidden = isOpen;
       document.body.style.overflow = isOpen ? "" : "hidden";
     });
@@ -169,29 +180,14 @@ import { navLinks } from "../data/site";
     gap: 0.75rem;
   }
 
+  .header-actions :global(.lang-switcher) {
+    display: flex;
+  }
+
   .header-cta {
     display: none;
     padding: 0.625rem 1.25rem;
     font-size: 0.6875rem;
-  }
-
-  .lang-toggle {
-    display: none;
-    align-items: center;
-    gap: 0.25rem;
-    padding: 0.5rem 0.75rem;
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    border-radius: 0.375rem;
-    background: transparent;
-    color: rgba(255, 255, 255, 0.8);
-    font-size: 0.75rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: border-color 0.2s;
-  }
-
-  .lang-toggle:hover {
-    border-color: rgba(255, 255, 255, 0.35);
   }
 
   .menu-toggle {
@@ -274,10 +270,6 @@ import { navLinks } from "../data/site";
 
     .header-cta {
       display: inline-flex;
-    }
-
-    .lang-toggle {
-      display: flex;
     }
   }
 
