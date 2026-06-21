@@ -4,6 +4,7 @@ import react from '@astrojs/react';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 import { DEPLOY_BASE, DEPLOY_SITE } from './deploy.config.mjs';
+import { SECURITY_HEADERS } from './src/config/security-headers.ts';
 
 // https://astro.build/config
 export default defineConfig({
@@ -31,5 +32,11 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      headers: SECURITY_HEADERS,
+    },
+    preview: {
+      headers: SECURITY_HEADERS,
+    },
   },
 });

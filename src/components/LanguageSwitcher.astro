@@ -1,40 +1,44 @@
 ---
 import type { Locale } from "../i18n/config";
 import { locales, localeLabels, getLocalePath } from "../i18n/config";
+import { useTranslations } from "../i18n";
 
 interface Props {
   locale: Locale;
-  label: string;
 }
 
-const { locale, label } = Astro.props;
+const { locale } = Astro.props;
+const t = useTranslations(locale);
 ---
 
 <div class="lang-switcher">
+  <span class="sr-only" id="lang-switcher-label">{t.header.selectLanguage}</span>
   <button
     class="lang-toggle"
     type="button"
-    aria-label={label}
+    aria-labelledby="lang-switcher-label lang-current"
     aria-expanded="false"
-    aria-haspopup="listbox"
+    aria-haspopup="true"
     aria-controls="lang-menu"
     id="lang-toggle"
   >
-    {localeLabels[locale]}
+    <span id="lang-current">{localeLabels[locale]}</span>
     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true">
       <path d="M3 4.5L6 7.5L9 4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
     </svg>
   </button>
 
-  <ul class="lang-menu" id="lang-menu" role="listbox" hidden>
+  <ul class="lang-menu" id="lang-menu" role="menu" aria-label={t.header.languageMenu} hidden>
     {
       locales.map((loc) => (
-        <li role="option" aria-selected={loc === locale ? "true" : "false"}>
+        <li role="none">
           <a
             href={getLocalePath(loc)}
             class:list={["lang-option", { "lang-option--active": loc === locale }]}
+            role="menuitem"
             hreflang={loc}
             lang={loc}
+            aria-current={loc === locale ? "page" : undefined}
           >
             {localeLabels[loc]}
           </a>
@@ -45,24 +49,66 @@ const { locale, label } = Astro.props;
 </div>
 
 <script>
+  import "../scripts/trusted-types.ts";
+  import { focusFirstElement, trapFocus } from "../scripts/a11y.ts";
+
   const toggle = document.getElementById("lang-toggle");
   const menu = document.getElementById("lang-menu");
 
   if (toggle && menu) {
+    let releaseFocusTrap: (() => void) | null = null;
+
     const closeMenu = () => {
       toggle.setAttribute("aria-expanded", "false");
       menu.hidden = true;
+      releaseFocusTrap?.();
+      releaseFocusTrap = null;
     };
 
-    toggle.addEventListener("click", (e) => {
-      e.stopPropagation();
+    const openMenu = () => {
+      toggle.setAttribute("aria-expanded", "true");
+      menu.hidden = false;
+      focusFirstElement(menu);
+      releaseFocusTrap = trapFocus(menu);
+    };
+
+    toggle.addEventListener("click", (event) => {
+      event.stopPropagation();
       const isOpen = toggle.getAttribute("aria-expanded") === "true";
-      toggle.setAttribute("aria-expanded", String(!isOpen));
-      menu.hidden = isOpen;
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
 
+    menu.addEventListener("click", (event) => event.stopPropagation());
     document.addEventListener("click", closeMenu);
-    menu.addEventListener("click", (e) => e.stopPropagation());
+
+    menu.addEventListener("keydown", (event) => {
+      const items = Array.from(menu.querySelectorAll<HTMLElement>('[role="menuitem"]'));
+      const index = items.indexOf(document.activeElement as HTMLElement);
+
+      if (event.key === "ArrowDown") {
+        event.preventDefault();
+        items[(index + 1) % items.length]?.focus();
+      }
+
+      if (event.key === "ArrowUp") {
+        event.preventDefault();
+        items[(index - 1 + items.length) % items.length]?.focus();
+      }
+
+      if (event.key === "Home") {
+        event.preventDefault();
+        items[0]?.focus();
+      }
+
+      if (event.key === "End") {
+        event.preventDefault();
+        items[items.length - 1]?.focus();
+      }
+    });
 
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
@@ -110,6 +156,7 @@ const { locale, label } = Astro.props;
     min-width: 5rem;
     list-style: none;
     padding: 0.375rem;
+    margin: 0;
     border-radius: 0.5rem;
     background: rgba(7, 17, 31, 0.95);
     backdrop-filter: blur(16px);
@@ -139,7 +186,8 @@ const { locale, label } = Astro.props;
     outline-offset: -2px;
   }
 
-  .lang-option--active {
+  .lang-option--active,
+  .lang-option[aria-current="page"] {
     color: #2563eb;
     background: rgba(37, 99, 235, 0.1);
   }

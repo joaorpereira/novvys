@@ -8,6 +8,7 @@ export const pt: Translations = {
   },
   a11y: {
     skipToContent: "Ir para o conteúdo principal",
+    mainContent: "Conteúdo principal",
     socialLinks: "Redes sociais",
     heroImageAlt:
       "Ecossistema digital com laptop, código, nuvem, dados e resultados — engenharia de software Novvys",
@@ -33,6 +34,7 @@ export const pt: Translations = {
     openMenu: "Abrir menu",
     closeMenu: "Fechar menu",
     selectLanguage: "Selecionar idioma",
+    languageMenu: "Idiomas disponíveis",
   },
   hero: {
     badge: "Software House · Software · Dados · UX",

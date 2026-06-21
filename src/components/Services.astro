@@ -34,7 +34,7 @@ const t = useTranslations(locale);
             class="service-card reveal"
             style={`--reveal-delay: ${index * 80}ms`}
           >
-            <div class="service-icon">
+            <div class="service-icon" aria-hidden="true">
               <Icon name={serviceIcons[index]} size={28} />
             </div>
             <h3 class="service-title">{service.title}</h3>

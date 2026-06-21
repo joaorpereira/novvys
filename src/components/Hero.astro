@@ -17,6 +17,10 @@ const t = useTranslations(locale);
 
   <div class="container hero-container">
     <div class="hero-grid">
+      <div class="hero-visual">
+        <HeroVisual locale={locale} />
+      </div>
+
       <div class="hero-content">
         <p class="hero-badge hero-enter">
           <span class="hero-badge-dot" aria-hidden="true"></span>
@@ -56,10 +60,6 @@ const t = useTranslations(locale);
             ))
           }
         </dl>
-      </div>
-
-      <div class="hero-visual">
-        <HeroVisual locale={locale} />
       </div>
     </div>
   </div>
@@ -228,6 +228,12 @@ const t = useTranslations(locale);
     transition: color 0.2s;
   }
 
+  .scroll-cue:focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: 4px;
+    color: rgba(255, 255, 255, 0.65);
+  }
+
   .scroll-cue:hover {
     color: rgba(255, 255, 255, 0.65);
   }
@@ -244,25 +250,19 @@ const t = useTranslations(locale);
     width: 1px;
     height: 40px;
     background: linear-gradient(180deg, rgba(37, 99, 235, 0.6), transparent);
+    transform-origin: top center;
     animation: scroll-line 2s ease-in-out infinite;
   }
 
   @keyframes scroll-line {
-    0% {
+    0%,
+    100% {
       transform: scaleY(0);
-      transform-origin: top;
+      opacity: 0.4;
     }
     50% {
       transform: scaleY(1);
-      transform-origin: top;
-    }
-    51% {
-      transform: scaleY(1);
-      transform-origin: bottom;
-    }
-    100% {
-      transform: scaleY(0);
-      transform-origin: bottom;
+      opacity: 1;
     }
   }
 
@@ -276,16 +276,22 @@ const t = useTranslations(locale);
       gap: 2rem 4rem;
     }
 
+    .hero-content {
+      grid-column: 1;
+      grid-row: 1;
+    }
+
+    .hero-visual {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
     .hero-highlight {
       display: inline;
     }
   }
 
   @media (max-width: 1023px) {
-    .hero-visual {
-      order: -1;
-    }
-
     .scroll-cue {
       display: none;
     }

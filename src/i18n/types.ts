@@ -5,6 +5,7 @@ export interface Translations {
   };
   a11y: {
     skipToContent: string;
+    mainContent: string;
     socialLinks: string;
     heroImageAlt: string;
     linkedIn: string;
@@ -29,6 +30,7 @@ export interface Translations {
     openMenu: string;
     closeMenu: string;
     selectLanguage: string;
+    languageMenu: string;
   };
   hero: {
     badge: string;

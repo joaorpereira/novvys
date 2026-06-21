@@ -14,7 +14,7 @@ const t = useTranslations(locale);
 <section class="clients-strip" aria-labelledby="clients-heading">
   <div class="container clients-inner">
     <h2 class="clients-label" id="clients-heading">{t.clients.label}</h2>
-    <div class="clients-track">
+    <div class="clients-track" aria-hidden="true">
       <ul class="clients-logos">
         {
           clients.map((client) => (
@@ -26,7 +26,7 @@ const t = useTranslations(locale);
         }
         {
           clients.map((client) => (
-            <li class="client-logo" aria-hidden="true">
+            <li class="client-logo">
               <span class="client-logo-mark" aria-hidden="true"></span>
               {client}
             </li>
@@ -34,6 +34,9 @@ const t = useTranslations(locale);
         }
       </ul>
     </div>
+    <ul class="sr-only">
+      {clients.map((client) => <li>{client}</li>)}
+    </ul>
   </div>
 </section>
 
@@ -124,10 +127,6 @@ const t = useTranslations(locale);
       justify-content: center;
       width: 100%;
       gap: 1rem;
-    }
-
-    .clients-logos .client-logo[aria-hidden="true"] {
-      display: none;
     }
 
     .clients-track {

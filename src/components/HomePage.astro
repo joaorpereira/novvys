@@ -1,5 +1,6 @@
 ---
 import type { Locale } from "../i18n/config";
+import { useTranslations } from "../i18n";
 import Layout from "../layouts/Layout.astro";
 import Header from "./Header.astro";
 import Hero from "./Hero.astro";
@@ -16,11 +17,12 @@ interface Props {
 }
 
 const { locale } = Astro.props;
+const t = useTranslations(locale);
 ---
 
 <Layout locale={locale}>
   <Header locale={locale} />
-  <main id="main-content" tabindex="-1">
+  <main id="main-content" tabindex="-1" aria-label={t.a11y.mainContent}>
     <Hero locale={locale} />
     <ClientsStrip locale={locale} />
     <Stats locale={locale} />

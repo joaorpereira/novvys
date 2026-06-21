@@ -202,6 +202,10 @@ img {
   transition: background 0.2s, transform 0.2s;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

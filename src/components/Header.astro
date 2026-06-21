@@ -36,7 +36,7 @@ const homePath = getLocalePath(locale);
 
     <div class="header-actions">
       <a href="#contato" class="btn-outline header-cta">{t.nav.cta}</a>
-      <LanguageSwitcher locale={locale} label={t.header.selectLanguage} />
+      <LanguageSwitcher locale={locale} />
 
       <button
         class="menu-toggle"
@@ -55,7 +55,16 @@ const homePath = getLocalePath(locale);
     </div>
   </div>
 
-  <nav class="nav-mobile" id="mobile-menu" aria-label={t.header.mobileNavAria} hidden>
+  <nav
+    class="nav-mobile"
+    id="mobile-menu"
+    aria-labelledby="mobile-menu-title"
+    aria-label={t.header.mobileNavAria}
+    role="dialog"
+    aria-modal="true"
+    hidden
+  >
+    <p class="sr-only" id="mobile-menu-title">{t.header.mobileNavAria}</p>
     <div class="container nav-mobile-inner">
       {
         navLinks.map((link) => (
@@ -70,6 +79,9 @@ const homePath = getLocalePath(locale);
 </header>
 
 <script>
+  import "../scripts/trusted-types.ts";
+  import { focusFirstElement, setBackgroundInert, trapFocus } from "../scripts/a11y.ts";
+
   const header = document.getElementById("header");
   const menuToggle = document.getElementById("menu-toggle");
   const mobileMenu = document.getElementById("mobile-menu");
@@ -78,6 +90,7 @@ const homePath = getLocalePath(locale);
     const mobileLinks = mobileMenu.querySelectorAll("a");
     const openLabel = menuToggle.dataset.openLabel ?? "Open menu";
     const closeLabel = menuToggle.dataset.closeLabel ?? "Close menu";
+    let releaseFocusTrap: (() => void) | null = null;
 
     const handleScroll = () => {
       header.classList.toggle("header-scrolled", window.scrollY > 20);
@@ -88,14 +101,28 @@ const homePath = getLocalePath(locale);
       menuToggle.setAttribute("aria-label", openLabel);
       mobileMenu.hidden = true;
       document.body.style.overflow = "";
+      setBackgroundInert(false);
+      releaseFocusTrap?.();
+      releaseFocusTrap = null;
+    };
+
+    const openMenu = () => {
+      menuToggle.setAttribute("aria-expanded", "true");
+      menuToggle.setAttribute("aria-label", closeLabel);
+      mobileMenu.hidden = false;
+      document.body.style.overflow = "hidden";
+      setBackgroundInert(true);
+      focusFirstElement(mobileMenu);
+      releaseFocusTrap = trapFocus(mobileMenu);
     };
 
     menuToggle.addEventListener("click", () => {
       const isOpen = menuToggle.getAttribute("aria-expanded") === "true";
-      menuToggle.setAttribute("aria-expanded", String(!isOpen));
-      menuToggle.setAttribute("aria-label", isOpen ? openLabel : closeLabel);
-      mobileMenu.hidden = isOpen;
-      document.body.style.overflow = isOpen ? "" : "hidden";
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
     });
 
     mobileLinks.forEach((link) => link.addEventListener("click", closeMenu));
