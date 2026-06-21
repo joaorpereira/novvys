@@ -1,0 +1,119 @@
+---
+import { stats } from "../data/site";
+import Icon from "./Icon.astro";
+---
+
+<section class="stats-bar" id="stats" aria-label="Métricas da empresa">
+  <div class="stats-bar-bg" aria-hidden="true"></div>
+  <div class="container stats-inner">
+    {
+      stats.map((stat, index) => (
+        <div class="stat-item reveal" style={`--reveal-delay: ${index * 100}ms`}>
+          <div class="stat-icon">
+            <Icon name={stat.icon} size={24} />
+          </div>
+          <div
+            class="stat-value"
+            data-count-target={stat.target}
+            data-count-suffix={stat.suffix}
+          >
+            0{stat.suffix}
+          </div>
+          <div class="stat-label">{stat.label}</div>
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  .stats-bar {
+    position: relative;
+    z-index: 2;
+    padding: 3rem 0;
+    overflow: hidden;
+  }
+
+  .stats-bar-bg {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(5, 10, 21, 0.6) 0%,
+      rgba(7, 17, 31, 1) 50%,
+      rgba(5, 10, 21, 0.6) 100%
+    );
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .stats-bar-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(180deg, transparent, black 30%, black 70%, transparent);
+    -webkit-mask-image: linear-gradient(180deg, transparent, black 30%, black 70%, transparent);
+  }
+
+  .stats-inner {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 1.5rem 1rem;
+    border-radius: 0.75rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .stat-item:hover {
+    background: rgba(37, 99, 235, 0.06);
+    border-color: rgba(37, 99, 235, 0.2);
+  }
+
+  .stat-icon {
+    color: #2563eb;
+    margin-bottom: 0.25rem;
+  }
+
+  .stat-value {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: #b5bfd1;
+    line-height: 1.4;
+  }
+
+  @media (min-width: 640px) {
+    .stats-inner {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .stats-inner {
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5rem;
+    }
+  }
+</style>

@@ -1,0 +1,142 @@
+---
+interface Props {
+  name: string;
+  size?: number;
+}
+
+const { name, size = 24 } = Astro.props;
+---
+
+{
+  name === "code" && (
+    <svg width={size} height={size} viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <path d="M8 7L3 14L8 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M20 7L25 14L20 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M16 5L12 23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    </svg>
+  )
+}
+{
+  name === "mobile" && (
+    <svg width={size} height={size} viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <rect x="7" y="3" width="14" height="22" rx="2" stroke="currentColor" stroke-width="1.5" />
+      <path d="M12 22H16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    </svg>
+  )
+}
+{
+  name === "cloud" && (
+    <svg width={size} height={size} viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <path d="M7 20H21C23.21 20 25 18.21 25 16C25 13.79 23.21 12 21 12C21 8.69 18.31 6 15 6C12.61 6 10.55 7.38 9.5 9.4C6.46 9.4 4 11.86 4 15C4 17.76 6.24 20 9 20H7Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+    </svg>
+  )
+}
+{
+  name === "api" && (
+    <svg width={size} height={size} viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <circle cx="7" cy="14" r="3" stroke="currentColor" stroke-width="1.5" />
+      <circle cx="21" cy="7" r="3" stroke="currentColor" stroke-width="1.5" />
+      <circle cx="21" cy="21" r="3" stroke="currentColor" stroke-width="1.5" />
+      <path d="M10 13L18 8M10 15L18 20" stroke="currentColor" stroke-width="1.5" />
+    </svg>
+  )
+}
+{
+  name === "data" && (
+    <svg width={size} height={size} viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <path d="M4 22V14M10 22V8M16 22V12M22 22V4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    </svg>
+  )
+}
+{
+  name === "support" && (
+    <svg width={size} height={size} viewBox="0 0 28 28" fill="none" aria-hidden="true">
+      <path d="M14 3V5M14 23V25M3 14H5M23 14H25" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+      <circle cx="14" cy="14" r="6" stroke="currentColor" stroke-width="1.5" />
+      <path d="M14 11V14L16 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    </svg>
+  )
+}
+{
+  name === "search" && (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="1.5" />
+      <path d="M16 16L20 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    </svg>
+  )
+}
+{
+  name === "plan" && (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="3" y="4" width="18" height="16" rx="2" stroke="currentColor" stroke-width="1.5" />
+      <path d="M3 10H21M8 4V8M16 4V8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    </svg>
+  )
+}
+{
+  name === "dev" && (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M8 7L3 12L8 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M16 7L21 12L16 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M13 5L11 19" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    </svg>
+  )
+}
+{
+  name === "deploy" && (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 3L20 7V12C20 16.42 16.42 20 12 20C7.58 20 4 16.42 4 12V7L12 3Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+      <path d="M9 12L11 14L15 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  )
+}
+{
+  name === "evolve" && (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M4 18L8 10L12 14L16 6L20 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+    </svg>
+  )
+}
+{
+  name === "projects" && (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <rect x="3" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5" />
+      <rect x="14" y="3" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5" />
+      <rect x="3" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5" />
+      <rect x="14" y="14" width="7" height="7" rx="1" stroke="currentColor" stroke-width="1.5" />
+    </svg>
+  )
+}
+{
+  name === "star" && (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" />
+    </svg>
+  )
+}
+{
+  name === "clock" && (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" />
+      <path d="M12 7V12L15 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    </svg>
+  )
+}
+{
+  name === "globe" && (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5" />
+      <path d="M2 12H22M12 2C14.5 5 16 8.5 16 12C16 15.5 14.5 19 12 22C9.5 19 8 15.5 8 12C8 8.5 9.5 5 12 2Z" stroke="currentColor" stroke-width="1.5" />
+    </svg>
+  )
+}
+{
+  name === "team" && (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M17 21V19C17 16.79 15.21 15 13 15H5C2.79 15 1 16.79 1 19V21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+      <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="1.5" />
+      <path d="M23 21V19C22.99 17.13 21.7 15.52 19.9 15.13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+      <path d="M16 3.13C17.8 3.52 19.09 5.13 19.09 7C19.09 8.87 17.8 10.48 16 10.87" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+    </svg>
+  )
+}

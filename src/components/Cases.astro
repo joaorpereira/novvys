@@ -1,24 +1,205 @@
-<section>
-  <div class="container">
-    <h2>Cases de Sucesso</h2>
+---
+import { cases } from "../data/site";
+---
 
-    <div class="grid">
-      <div class="case card">Fintech Platform</div>
-      <div class="case card">Logistics ERP</div>
-      <div class="case card">Telemedicine</div>
+<section class="cases" id="cases" aria-labelledby="cases-heading">
+  <span id="solucoes" class="section-anchor" aria-hidden="true"></span>
+  <div class="container">
+    <div class="cases-header">
+      <div class="reveal">
+        <span class="section-label">Cases de sucesso</span>
+        <h2 class="cases-title" id="cases-heading">Resultados que geram impacto</h2>
+      </div>
+
+      <a href="#cases" class="cases-link reveal" style="--reveal-delay: 150ms">
+        Ver todos os cases
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+    </div>
+
+    <div class="cases-grid">
+      {
+        cases.map((caseItem, index) => (
+          <article
+            class="case-card reveal-left"
+            style={`background: ${caseItem.gradient}; --reveal-delay: ${index * 120}ms`}
+          >
+            <div class="case-overlay"></div>
+            <div class="case-content">
+              <span class="case-tag">{caseItem.tag}</span>
+              <h3 class="case-title">{caseItem.title}</h3>
+              <p class="case-desc">{caseItem.description}</p>
+              <a href="#contato" class="case-arrow" aria-label={`Ver case ${caseItem.title}`}>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                  <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))
+      }
     </div>
   </div>
 </section>
 
 <style>
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 24px;
-  margin-top: 32px;
-}
+  .cases {
+    background: var(--bg-primary);
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+  }
 
-.case {
-  height: 280px;
-}
+  .cases::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 60% 40% at 20% 20%, rgba(37, 99, 235, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 30% at 80% 80%, rgba(29, 78, 216, 0.06) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .cases::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 10%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 50%, black 10%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cases .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .cases-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .cases-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+  }
+
+  .cases-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #2563eb;
+    transition: gap 0.2s;
+  }
+
+  .cases-link:hover {
+    gap: 0.75rem;
+  }
+
+  .cases-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .case-card {
+    position: relative;
+    border-radius: 1rem;
+    overflow: hidden;
+    min-height: 320px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+
+  .case-card:hover {
+    transform: scale(1.02);
+  }
+
+  .case-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(5, 10, 21, 0.95) 0%, rgba(5, 10, 21, 0.3) 60%, transparent 100%);
+  }
+
+  .case-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%;
+    min-height: 320px;
+    padding: 2rem;
+  }
+
+  .case-tag {
+    display: inline-block;
+    width: fit-content;
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.25rem;
+    background: rgba(37, 99, 235, 0.3);
+    border: 1px solid rgba(37, 99, 235, 0.5);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #93c5fd;
+    margin-bottom: 1rem;
+  }
+
+  .case-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .case-desc {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: #b5bfd1;
+    margin-bottom: 1.25rem;
+  }
+
+  .case-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .case-arrow:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+  }
+
+  @media (min-width: 768px) {
+    .cases-header {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
+
+    .cases-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
 </style>

@@ -1,0 +1,183 @@
+---
+interface Props {
+  variant?: "hero" | "dark" | "light";
+}
+
+const { variant = "dark" } = Astro.props;
+---
+
+<div class={`backdrop backdrop--${variant}`} aria-hidden="true">
+  <div class="backdrop-grid"></div>
+  <div class="backdrop-mesh"></div>
+  <div class="backdrop-orbs">
+    <span class="orb orb-1"></span>
+    <span class="orb orb-2"></span>
+    <span class="orb orb-3"></span>
+  </div>
+  <div class="backdrop-lines">
+    <span class="line line-h"></span>
+    <span class="line line-v"></span>
+  </div>
+  <div class="backdrop-noise"></div>
+  <div class="backdrop-vignette"></div>
+</div>
+
+<style>
+  .backdrop {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .backdrop-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 20%, transparent 75%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, black 20%, transparent 75%);
+  }
+
+  .backdrop-mesh {
+    position: absolute;
+    inset: 0;
+    opacity: 0.6;
+    background:
+      radial-gradient(ellipse 60% 50% at 75% 35%, rgba(37, 99, 235, 0.18) 0%, transparent 55%),
+      radial-gradient(ellipse 45% 40% at 15% 75%, rgba(29, 78, 216, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse 30% 25% at 50% 10%, rgba(59, 130, 246, 0.08) 0%, transparent 45%);
+  }
+
+  .backdrop-orbs {
+    position: absolute;
+    inset: 0;
+  }
+
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: orb-float 12s ease-in-out infinite;
+  }
+
+  .orb-1 {
+    width: 420px;
+    height: 420px;
+    top: 10%;
+    right: 5%;
+    background: rgba(37, 99, 235, 0.15);
+    animation-delay: 0s;
+  }
+
+  .orb-2 {
+    width: 300px;
+    height: 300px;
+    bottom: 15%;
+    left: -5%;
+    background: rgba(29, 78, 216, 0.12);
+    animation-delay: -4s;
+  }
+
+  .orb-3 {
+    width: 200px;
+    height: 200px;
+    top: 50%;
+    left: 40%;
+    background: rgba(96, 165, 250, 0.08);
+    animation-delay: -8s;
+  }
+
+  .backdrop-lines .line {
+    position: absolute;
+    background: linear-gradient(90deg, transparent, rgba(37, 99, 235, 0.25), transparent);
+  }
+
+  .line-h {
+    top: 38%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    opacity: 0.4;
+  }
+
+  .line-v {
+    top: 0;
+    bottom: 0;
+    left: 62%;
+    width: 1px;
+    background: linear-gradient(180deg, transparent, rgba(37, 99, 235, 0.2), transparent);
+    opacity: 0.35;
+  }
+
+  .backdrop-noise {
+    position: absolute;
+    inset: 0;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-repeat: repeat;
+    background-size: 128px 128px;
+  }
+
+  .backdrop-vignette {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 100% 100% at 50% 50%, transparent 40%, rgba(5, 10, 21, 0.5) 100%);
+  }
+
+  .backdrop--hero .backdrop-grid {
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 90% 80% at 60% 45%, black 10%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 90% 80% at 60% 45%, black 10%, transparent 70%);
+  }
+
+  .backdrop--hero .orb-1 {
+    width: 560px;
+    height: 560px;
+    top: 5%;
+    right: 0;
+    background: rgba(37, 99, 235, 0.22);
+  }
+
+  .backdrop--light .backdrop-grid {
+    background-image:
+      linear-gradient(rgba(7, 17, 31, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(7, 17, 31, 0.04) 1px, transparent 1px);
+  }
+
+  .backdrop--light .backdrop-mesh {
+    background:
+      radial-gradient(ellipse 50% 40% at 90% 10%, rgba(37, 99, 235, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse 40% 30% at 10% 90%, rgba(37, 99, 235, 0.04) 0%, transparent 50%);
+  }
+
+  .backdrop--light .backdrop-vignette {
+    background: radial-gradient(ellipse 100% 100% at 50% 50%, transparent 60%, rgba(240, 244, 248, 0.4) 100%);
+  }
+
+  .backdrop--light .orb {
+    opacity: 0.5;
+  }
+
+  @keyframes orb-float {
+    0%,
+    100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(20px, -15px) scale(1.05);
+    }
+    66% {
+      transform: translate(-15px, 10px) scale(0.95);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .orb {
+      animation: none;
+    }
+  }
+</style>

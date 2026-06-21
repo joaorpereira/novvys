@@ -1,25 +1,46 @@
 ---
-const services = [
-  "Software",
-  "Mobile",
-  "Cloud",
-  "APIs",
-  "Analytics",
-  "Support"
-];
+import { services } from "../data/site";
+import Icon from "./Icon.astro";
 ---
 
-<section>
+<section class="services" id="servicos" aria-labelledby="services-heading">
   <div class="container">
-    <h2>Soluções completas</h2>
+    <div class="services-header">
+      <div class="services-intro reveal">
+        <span class="section-label">O que fazemos</span>
+        <h2 class="services-title" id="services-heading">
+          Soluções completas para empresas que querem escalar
+        </h2>
+      </div>
 
-    <div class="grid">
+      <p class="services-desc reveal" style="--reveal-delay: 150ms">
+        Combinamos engenharia de software, dados e design para entregar
+        produtos digitais que geram resultados reais para o seu negócio.
+      </p>
+    </div>
+
+    <div class="services-grid">
       {
-        services.map(service => (
-          <div class="card">
-            <h3>{service}</h3>
-            <p>Soluções robustas e escaláveis.</p>
-          </div>
+        services.map((service, index) => (
+          <article
+            class="service-card reveal"
+            style={`--reveal-delay: ${index * 80}ms`}
+          >
+            <div class="service-icon">
+              <Icon name={service.icon} size={28} />
+            </div>
+            <h3 class="service-title">{service.title}</h3>
+            <p class="service-desc">{service.description}</p>
+            <a
+              href="#contato"
+              class="service-link"
+              aria-label={`Saiba mais sobre ${service.title}`}
+            >
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                <path d="M4 10H16M16 10L11 5M16 10L11 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </a>
+          </article>
         ))
       }
     </div>
@@ -27,10 +48,141 @@ const services = [
 </section>
 
 <style>
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 40px;
-}
+  .services {
+    background: var(--bg-light);
+    color: #07111f;
+    padding: 6rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .services::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(7, 17, 31, 0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(7, 17, 31, 0.03) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 10%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 10%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .services .container {
+    position: relative;
+    z-index: 1;
+  }
+
+  .services-header {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .services-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    color: #07111f;
+  }
+
+  .services-desc {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #64748b;
+    max-width: 420px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .service-card {
+    position: relative;
+    background: #ffffff;
+    border: 1px solid rgba(7, 17, 31, 0.08);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: box-shadow 0.3s, border-color 0.3s, transform 0.3s;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, #2563eb, transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .service-card:hover::before {
+    opacity: 1;
+  }
+
+  .service-card:hover {
+    box-shadow: 0 16px 48px rgba(7, 17, 31, 0.1);
+    border-color: rgba(37, 99, 235, 0.25);
+    transform: translateY(-2px);
+  }
+
+  .service-icon {
+    color: #2563eb;
+    margin-bottom: 1.25rem;
+  }
+
+  .service-title {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: #07111f;
+    margin-bottom: 0.75rem;
+  }
+
+  .service-desc {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: #64748b;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 50%;
+    color: #2563eb;
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  .service-link:hover {
+    background: rgba(37, 99, 235, 0.1);
+    transform: translateX(2px);
+  }
+
+  @media (min-width: 640px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .services-header {
+      grid-template-columns: 1fr 1fr;
+      align-items: end;
+    }
+
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
 </style>
