@@ -55,17 +55,16 @@ const homePath = getLocalePath(locale);
     </div>
   </div>
 
-  <nav
+  <div
     class="nav-mobile"
     id="mobile-menu"
-    aria-labelledby="mobile-menu-title"
-    aria-label={t.header.mobileNavAria}
     role="dialog"
     aria-modal="true"
+    aria-labelledby="mobile-menu-title"
     hidden
   >
     <p class="sr-only" id="mobile-menu-title">{t.header.mobileNavAria}</p>
-    <div class="container nav-mobile-inner">
+    <nav class="container nav-mobile-inner" aria-label={t.header.mobileNavAria}>
       {
         navLinks.map((link) => (
           <a href={link.href} class="nav-mobile-link">
@@ -74,8 +73,8 @@ const homePath = getLocalePath(locale);
         ))
       }
       <a href="#contato" class="btn-primary nav-mobile-cta">{t.nav.cta}</a>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </header>
 
 <script>

@@ -1,5 +1,4 @@
-/** Security headers for Lighthouse Trust & Safety checks. */
-export const CONTENT_SECURITY_POLICY = [
+const CSP_DIRECTIVES = [
   "default-src 'self'",
   "base-uri 'self'",
   "object-src 'none'",
@@ -14,7 +13,25 @@ export const CONTENT_SECURITY_POLICY = [
   "upgrade-insecure-requests",
   "require-trusted-types-for 'script'",
   "trusted-types default",
-].join("; ");
+] as const;
+
+/** Directives that only apply as HTTP headers, not in `<meta http-equiv>`. */
+const HEADER_ONLY_DIRECTIVES = new Set(["frame-ancestors"]);
+
+function joinDirectives(directives: readonly string[]): string {
+  return directives.join("; ");
+}
+
+/** Full CSP for HTTP response headers (`_headers`, dev/preview server). */
+export const CONTENT_SECURITY_POLICY = joinDirectives(CSP_DIRECTIVES);
+
+/** CSP for `<meta http-equiv>` — excludes header-only directives. */
+export const META_CONTENT_SECURITY_POLICY = joinDirectives(
+  CSP_DIRECTIVES.filter((directive) => {
+    const name = directive.split(/\s+/)[0];
+    return !HEADER_ONLY_DIRECTIVES.has(name);
+  }),
+);
 
 export const SECURITY_HEADERS: Record<string, string> = {
   "Content-Security-Policy": CONTENT_SECURITY_POLICY,

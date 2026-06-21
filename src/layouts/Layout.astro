@@ -3,7 +3,7 @@ import type { Locale } from "../i18n/config";
 import { getLocalePath, localeHtmlLang, locales, defaultLocale } from "../i18n/config";
 import { useTranslations } from "../i18n";
 import { SITE, localeOgLocale } from "../config/site";
-import { CONTENT_SECURITY_POLICY } from "../config/security-headers";
+import { META_CONTENT_SECURITY_POLICY } from "../config/security-headers";
 import { absoluteUrl, withBase } from "../utils/urls";
 import "../styles/global.css";
 
@@ -73,7 +73,7 @@ const structuredData = {
     <meta name="robots" content="index, follow" />
     <meta name="author" content={SITE.name} />
     <meta name="theme-color" content="#07111f" />
-    <meta http-equiv="Content-Security-Policy" content={CONTENT_SECURITY_POLICY} />
+    <meta http-equiv="Content-Security-Policy" content={META_CONTENT_SECURITY_POLICY} />
     <link rel="icon" type="image/svg+xml" href={faviconUrl} />
     <link rel="canonical" href={canonicalUrl} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
