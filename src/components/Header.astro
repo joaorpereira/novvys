@@ -18,7 +18,10 @@ const homePath = getLocalePath(locale);
   <div class="container header-inner">
     <a href={homePath} class="logo" aria-label={t.header.logoAria}>
       <span class="logo-icon" aria-hidden="true">N</span>
-      <span class="logo-text">NOVVYS ENGINEERING</span>
+      <span class="logo-text-group">
+        <span class="logo-text">{t.header.logoName}</span>
+        <span class="logo-tagline">{t.header.tagline}</span>
+      </span>
     </a>
 
     <nav class="nav-desktop" aria-label={t.header.navAria}>
@@ -154,10 +157,26 @@ const homePath = getLocalePath(locale);
     color: #ffffff;
   }
 
+  .logo-text-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
   .logo-text {
     font-size: 0.6875rem;
     font-weight: 700;
     letter-spacing: 0.12em;
+    line-height: 1;
+    white-space: nowrap;
+  }
+
+  .logo-tagline {
+    font-size: 0.5625rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    line-height: 1;
+    color: var(--color-text-muted);
     white-space: nowrap;
   }
 

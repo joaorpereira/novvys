@@ -20,7 +20,10 @@ const currentYear = new Date().getFullYear();
       <div class="footer-brand" id="sobre">
         <a href={homePath} class="footer-logo" aria-label={t.footer.logoAria}>
           <span class="footer-logo-icon" aria-hidden="true">N</span>
-          <span>NOVVYS ENGINEERING</span>
+          <span class="footer-logo-text">
+            <span class="footer-logo-name">{t.header.logoName}</span>
+            <span class="footer-logo-tagline">{t.header.tagline}</span>
+          </span>
         </a>
         <p class="footer-desc">{t.footer.desc}</p>
         <nav class="footer-socials" aria-label={t.a11y.socialLinks}>
@@ -119,10 +122,28 @@ const currentYear = new Date().getFullYear();
     display: flex;
     align-items: center;
     gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-logo-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .footer-logo-name {
     font-size: 0.6875rem;
     font-weight: 700;
     letter-spacing: 0.12em;
-    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .footer-logo-tagline {
+    font-size: 0.5625rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    line-height: 1;
+    color: #b5bfd1;
   }
 
   .footer-logo-icon {

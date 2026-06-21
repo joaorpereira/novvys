@@ -21,6 +21,8 @@ export interface Translations {
     cta: string;
   };
   header: {
+    logoName: string;
+    tagline: string;
     logoAria: string;
     navAria: string;
     mobileNavAria: string;

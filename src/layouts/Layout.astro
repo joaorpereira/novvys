@@ -22,9 +22,12 @@ const structuredData = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Organization",
+      "@type": ["Organization", "ProfessionalService"],
       "@id": `${SITE.url}/#organization`,
       name: SITE.name,
+      legalName: SITE.legalName,
+      slogan: SITE.tagline,
+      description: t.meta.description,
       url: SITE.url,
       logo: `${SITE.url}/favicon.svg`,
       email: SITE.email,

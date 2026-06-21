@@ -1,5 +1,7 @@
 export const SITE = {
-  name: "Novvys Engineering",
+  name: "Novvys",
+  legalName: "Novvys Engineering",
+  tagline: "Software House",
   url: "https://novvys.com",
   email: "contato@novvys.com",
   phone: "+55-11-99999-9999",

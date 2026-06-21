@@ -2,9 +2,9 @@ import type { Translations } from "./types";
 
 export const pt: Translations = {
   meta: {
-    title: "Novvys Engineering — Tecnologia que constrói o futuro",
+    title: "Novvys — Software house de engenharia de software",
     description:
-      "Software sob medida, dados e experiências digitais de alto impacto para empresas que querem escalar com tecnologia.",
+      "Software house especializada em desenvolvimento sob medida, plataformas de dados e produtos digitais de alto impacto para empresas que querem escalar.",
   },
   a11y: {
     skipToContent: "Ir para o conteúdo principal",
@@ -25,7 +25,9 @@ export const pt: Translations = {
     cta: "Falar com especialista",
   },
   header: {
-    logoAria: "Novvys Engineering — Início",
+    logoName: "NOVVYS",
+    tagline: "Software House",
+    logoAria: "Novvys Software House — Início",
     navAria: "Navegação principal",
     mobileNavAria: "Menu mobile",
     openMenu: "Abrir menu",
@@ -33,11 +35,11 @@ export const pt: Translations = {
     selectLanguage: "Selecionar idioma",
   },
   hero: {
-    badge: "Software · Dados · Experiências",
-    title: "Tecnologia que constrói o",
+    badge: "Software House · Software · Dados · UX",
+    title: "Sua software house para construir o",
     titleHighlight: "futuro.",
     subtitle:
-      "Desenvolvemos software sob medida, plataformas de dados e experiências digitais de alto impacto para empresas que querem escalar com tecnologia.",
+      "Somos uma software house. Desenvolvemos software sob medida, plataformas de dados e experiências digitais de alto impacto para empresas que querem escalar com tecnologia.",
     ctaPrimary: "Conhecer serviços",
     ctaSecondary: "Ver cases",
     highlights: [
@@ -69,9 +71,9 @@ export const pt: Translations = {
   },
   services: {
     sectionLabel: "O que fazemos",
-    title: "Soluções completas para empresas que querem escalar",
+    title: "Uma software house completa para empresas que querem escalar",
     description:
-      "Combinamos engenharia de software, dados e design para entregar produtos digitais que geram resultados reais para o seu negócio.",
+      "Como software house, combinamos engenharia de software, dados e design para entregar produtos digitais que geram resultados reais para o seu negócio.",
     learnMore: "Saiba mais sobre",
     items: [
       {
@@ -165,7 +167,7 @@ export const pt: Translations = {
     ariaLabel: "Entre em contato",
   },
   footer: {
-    desc: "Engenharia de software de alto impacto para empresas que querem escalar com tecnologia.",
+    desc: "Software house de engenharia de software de alto impacto para empresas que querem escalar com tecnologia.",
     navigation: "Navegação",
     services: "Serviços",
     solutions: "Soluções",
@@ -174,7 +176,7 @@ export const pt: Translations = {
     copyright: "Novvys Engineering. Todos os direitos reservados.",
     privacy: "Política de Privacidade",
     terms: "Termos de Uso",
-    logoAria: "Novvys Engineering",
+    logoAria: "Novvys Software House",
     serviceLinks: [
       "Desenvolvimento de Software",
       "Aplicações Mobile",
