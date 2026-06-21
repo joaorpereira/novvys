@@ -3,6 +3,7 @@ import type { Locale } from "../i18n/config";
 import Layout from "../layouts/Layout.astro";
 import Header from "./Header.astro";
 import Hero from "./Hero.astro";
+import ClientsStrip from "./ClientsStrip.astro";
 import Stats from "./Stats.astro";
 import Services from "./Services.astro";
 import Cases from "./Cases.astro";
@@ -19,8 +20,9 @@ const { locale } = Astro.props;
 
 <Layout locale={locale}>
   <Header locale={locale} />
-  <main>
+  <main id="main-content" tabindex="-1">
     <Hero locale={locale} />
+    <ClientsStrip locale={locale} />
     <Stats locale={locale} />
     <Services locale={locale} />
     <Cases locale={locale} />

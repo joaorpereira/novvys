@@ -1,7 +1,8 @@
 ---
 import type { Locale } from "../i18n/config";
-import { getLocalePath, localeHtmlLang, locales } from "../i18n/config";
+import { getLocalePath, localeHtmlLang, locales, defaultLocale } from "../i18n/config";
 import { useTranslations } from "../i18n";
+import { SITE, localeOgLocale } from "../config/site";
 import "../styles/global.css";
 
 interface Props {
@@ -11,6 +12,48 @@ interface Props {
 const { locale } = Astro.props;
 const t = useTranslations(locale);
 const lang = localeHtmlLang[locale];
+const canonicalUrl = new URL(getLocalePath(locale), SITE.url).href;
+const ogLocale = localeOgLocale[locale];
+const defaultUrl = new URL(getLocalePath(defaultLocale), SITE.url).href;
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${SITE.url}/#organization`,
+      name: SITE.name,
+      url: SITE.url,
+      logo: `${SITE.url}/favicon.svg`,
+      email: SITE.email,
+      telephone: SITE.phone,
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "customer service",
+        email: SITE.email,
+        telephone: SITE.phone,
+        availableLanguage: ["Portuguese", "English", "Spanish"],
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE.url}/#website`,
+      name: SITE.name,
+      url: SITE.url,
+      inLanguage: lang,
+      publisher: { "@id": `${SITE.url}/#organization` },
+    },
+    {
+      "@type": "WebPage",
+      "@id": `${canonicalUrl}#webpage`,
+      url: canonicalUrl,
+      name: t.meta.title,
+      description: t.meta.description,
+      isPartOf: { "@id": `${SITE.url}/#website` },
+      inLanguage: lang,
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -19,26 +62,53 @@ const lang = localeHtmlLang[locale];
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={t.meta.description} />
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content={SITE.name} />
     <meta name="theme-color" content="#07111f" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
     {
       locales.map((loc) => (
         <link
           rel="alternate"
           hreflang={loc}
-          href={new URL(getLocalePath(loc), Astro.url.origin).href}
+          href={new URL(getLocalePath(loc), SITE.url).href}
         />
       ))
     }
+    <link rel="alternate" hreflang="x-default" href={defaultUrl} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:title" content={t.meta.title} />
+    <meta property="og:description" content={t.meta.description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content={ogLocale} />
+    {
+      locales
+        .filter((loc) => loc !== locale)
+        .map((loc) => (
+          <meta property="og:locale:alternate" content={localeOgLocale[loc]} />
+        ))
+    }
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={t.meta.title} />
+    <meta name="twitter:description" content={t.meta.description} />
+
     <title>{t.meta.title}</title>
+
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
   <body>
+    <a href="#main-content" class="skip-link">{t.a11y.skipToContent}</a>
     <slot />
     <script>
       import { initScrollAnimations, initCountUp } from "../scripts/animations.ts";

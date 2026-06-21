@@ -17,6 +17,7 @@ const { locale, label } = Astro.props;
     aria-label={label}
     aria-expanded="false"
     aria-haspopup="listbox"
+    aria-controls="lang-menu"
     id="lang-toggle"
   >
     {localeLabels[locale]}
@@ -28,11 +29,12 @@ const { locale, label } = Astro.props;
   <ul class="lang-menu" id="lang-menu" role="listbox" hidden>
     {
       locales.map((loc) => (
-        <li role="option" aria-selected={loc === locale}>
+        <li role="option" aria-selected={loc === locale ? "true" : "false"}>
           <a
             href={getLocalePath(loc)}
             class:list={["lang-option", { "lang-option--active": loc === locale }]}
             hreflang={loc}
+            lang={loc}
           >
             {localeLabels[loc]}
           </a>
@@ -61,6 +63,13 @@ const { locale, label } = Astro.props;
 
     document.addEventListener("click", closeMenu);
     menu.addEventListener("click", (e) => e.stopPropagation());
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+        closeMenu();
+        toggle.focus();
+      }
+    });
   }
 </script>
 
@@ -87,6 +96,11 @@ const { locale, label } = Astro.props;
   .lang-toggle:hover,
   .lang-toggle[aria-expanded="true"] {
     border-color: rgba(255, 255, 255, 0.35);
+  }
+
+  .lang-toggle:focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: 3px;
   }
 
   .lang-menu {
@@ -118,6 +132,11 @@ const { locale, label } = Astro.props;
   .lang-option:hover {
     background: rgba(255, 255, 255, 0.06);
     color: #ffffff;
+  }
+
+  .lang-option:focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: -2px;
   }
 
   .lang-option--active {

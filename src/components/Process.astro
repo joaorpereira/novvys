@@ -12,14 +12,14 @@ const { locale } = Astro.props;
 const t = useTranslations(locale);
 ---
 
-<section class="process" id="processo">
+<section class="process" id="processo" aria-labelledby="process-heading">
   <div class="container">
     <div class="process-header reveal">
       <span class="section-label">{t.process.sectionLabel}</span>
-      <h2 class="process-title">{t.process.title}</h2>
+      <h2 class="process-title" id="process-heading">{t.process.title}</h2>
     </div>
 
-    <div class="process-timeline">
+    <div class="process-timeline" role="list" aria-label={t.process.ariaLabel}>
       <div class="process-line" aria-hidden="true">
         <div class="process-line-fill reveal-line"></div>
       </div>
@@ -29,6 +29,7 @@ const t = useTranslations(locale);
           t.process.steps.map((step, index) => (
             <div
               class="process-step reveal"
+              role="listitem"
               style={`--reveal-delay: ${index * 150}ms`}
             >
               <div class="step-icon-wrap">

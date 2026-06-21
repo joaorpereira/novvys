@@ -11,35 +11,47 @@ const { locale } = Astro.props;
 const t = useTranslations(locale);
 ---
 
-<div class="clients-strip">
+<section class="clients-strip" aria-labelledby="clients-heading">
   <div class="container clients-inner">
-    <p class="clients-label">{t.clients.label}</p>
-    <div class="clients-track" aria-hidden="true">
-      <div class="clients-logos">
+    <h2 class="clients-label" id="clients-heading">{t.clients.label}</h2>
+    <div class="clients-track">
+      <ul class="clients-logos">
         {
-          [...clients, ...clients].map((client) => (
-            <span class="client-logo">{client}</span>
+          clients.map((client) => (
+            <li class="client-logo">
+              <span class="client-logo-mark" aria-hidden="true"></span>
+              {client}
+            </li>
           ))
         }
-      </div>
+        {
+          clients.map((client) => (
+            <li class="client-logo" aria-hidden="true">
+              <span class="client-logo-mark" aria-hidden="true"></span>
+              {client}
+            </li>
+          ))
+        }
+      </ul>
     </div>
   </div>
-</div>
+</section>
 
 <style>
   .clients-strip {
     position: relative;
     z-index: 2;
-    padding: 2rem 0 3rem;
+    padding: 2.5rem 0;
+    background: rgba(5, 10, 21, 0.85);
     border-top: 1px solid rgba(255, 255, 255, 0.06);
-    background: linear-gradient(180deg, rgba(5, 10, 21, 0.4) 0%, transparent 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
 
   .clients-inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.25rem;
+    gap: 1.5rem;
   }
 
   .clients-label {
@@ -47,35 +59,53 @@ const t = useTranslations(locale);
     font-weight: 600;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.35);
+    color: rgba(255, 255, 255, 0.5);
   }
 
   .clients-track {
     width: 100%;
     overflow: hidden;
-    mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
-    -webkit-mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);
+    mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
   }
 
   .clients-logos {
     display: flex;
-    gap: 3rem;
+    gap: 2.5rem;
     width: max-content;
-    animation: marquee 30s linear infinite;
+    list-style: none;
+    animation: marquee 35s linear infinite;
   }
 
   .client-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
     flex-shrink: 0;
-    font-size: 0.875rem;
+    padding: 0.625rem 1.25rem;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.03);
+    font-size: 0.8125rem;
     font-weight: 600;
     letter-spacing: 0.04em;
-    color: rgba(255, 255, 255, 0.25);
+    color: rgba(255, 255, 255, 0.55);
     white-space: nowrap;
-    transition: color 0.3s;
+    transition: color 0.3s, border-color 0.3s, background 0.3s;
   }
 
   .client-logo:hover {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.85);
+    border-color: rgba(37, 99, 235, 0.3);
+    background: rgba(37, 99, 235, 0.06);
+  }
+
+  .client-logo-mark {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #2563eb;
+    opacity: 0.6;
   }
 
   @keyframes marquee {
@@ -93,7 +123,11 @@ const t = useTranslations(locale);
       flex-wrap: wrap;
       justify-content: center;
       width: 100%;
-      gap: 1.5rem 2.5rem;
+      gap: 1rem;
+    }
+
+    .clients-logos .client-logo[aria-hidden="true"] {
+      display: none;
     }
 
     .clients-track {

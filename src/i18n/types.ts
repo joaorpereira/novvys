@@ -3,6 +3,14 @@ export interface Translations {
     title: string;
     description: string;
   };
+  a11y: {
+    skipToContent: string;
+    socialLinks: string;
+    decorativeGlobe: string;
+    linkedIn: string;
+    gitHub: string;
+    instagram: string;
+  };
   nav: {
     services: string;
     solutions: string;
@@ -55,12 +63,14 @@ export interface Translations {
   process: {
     sectionLabel: string;
     title: string;
+    ariaLabel: string;
     steps: { title: string; description: string }[];
   };
   cta: {
     title: string;
     subtitle: string;
     button: string;
+    ariaLabel: string;
   };
   footer: {
     desc: string;

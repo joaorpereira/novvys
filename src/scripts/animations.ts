@@ -25,10 +25,18 @@ export function initScrollAnimations() {
 
 export function initCountUp() {
   const counters = document.querySelectorAll<HTMLElement>("[data-count-target]");
+  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const animateCounter = (el: HTMLElement) => {
     const target = parseInt(el.dataset.countTarget ?? "0", 10);
     const suffix = el.dataset.countSuffix ?? "";
+    const finalValue = el.dataset.countFinal ?? `${target}${suffix}`;
+
+    if (prefersReducedMotion) {
+      el.textContent = finalValue;
+      return;
+    }
+
     const duration = 1500;
     const startTime = performance.now();
 

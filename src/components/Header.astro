@@ -97,6 +97,12 @@ const homePath = getLocalePath(locale);
 
     mobileLinks.forEach((link) => link.addEventListener("click", closeMenu));
     window.addEventListener("scroll", handleScroll, { passive: true });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && menuToggle.getAttribute("aria-expanded") === "true") {
+        closeMenu();
+        menuToggle.focus();
+      }
+    });
     handleScroll();
   }
 </script>
@@ -202,6 +208,12 @@ const homePath = getLocalePath(locale);
     border-radius: 0.375rem;
     background: transparent;
     cursor: pointer;
+    color: #ffffff;
+  }
+
+  .menu-toggle:focus-visible {
+    outline: 2px solid #60a5fa;
+    outline-offset: 3px;
   }
 
   .menu-bar {

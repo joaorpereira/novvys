@@ -14,21 +14,26 @@ const t = useTranslations(locale);
 
 <section class="stats-bar" id="stats" aria-label={t.stats.ariaLabel}>
   <div class="stats-bar-bg" aria-hidden="true"></div>
-  <div class="container stats-inner">
+  <div class="container stats-inner" role="list">
     {
       statData.map((stat, index) => (
-        <div class="stat-item reveal" style={`--reveal-delay: ${index * 100}ms`}>
-          <div class="stat-icon">
+        <div class="stat-item reveal" role="listitem" style={`--reveal-delay: ${index * 100}ms`}>
+          <div class="stat-icon" aria-hidden="true">
             <Icon name={stat.icon} size={24} />
           </div>
           <div
             class="stat-value"
+            aria-hidden="true"
             data-count-target={stat.target}
             data-count-suffix={stat.suffix}
+            data-count-final={`${stat.target}${stat.suffix}`}
           >
             0{stat.suffix}
           </div>
-          <div class="stat-label">{t.stats.items[index].label}</div>
+          <span class="sr-only">
+            {`${stat.target}${stat.suffix} ${t.stats.items[index].label}`}
+          </span>
+          <div class="stat-label" aria-hidden="true">{t.stats.items[index].label}</div>
         </div>
       ))
     }

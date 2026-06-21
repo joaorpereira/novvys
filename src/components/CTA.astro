@@ -10,7 +10,7 @@ const { locale } = Astro.props;
 const t = useTranslations(locale);
 ---
 
-<section class="cta" id="contato">
+<section class="cta" id="contato" aria-labelledby="cta-heading">
   <div class="cta-pattern" aria-hidden="true"></div>
   <div class="container">
     <div class="cta-inner reveal-scale">
@@ -19,11 +19,15 @@ const t = useTranslations(locale);
       </div>
 
       <div class="cta-text">
-        <h2 class="cta-title">{t.cta.title}</h2>
+        <h2 class="cta-title" id="cta-heading">{t.cta.title}</h2>
         <p class="cta-subtitle">{t.cta.subtitle}</p>
       </div>
 
-      <a href="mailto:contato@novvys.com" class="btn-dark cta-button">
+      <a
+        href="mailto:contato@novvys.com"
+        class="btn-dark cta-button"
+        aria-label={`${t.cta.button} — ${t.cta.ariaLabel}`}
+      >
         {t.cta.button}
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <path d="M3 8H13M13 8L9 4M13 8L9 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />

@@ -17,41 +17,49 @@ const currentYear = new Date().getFullYear();
 <footer class="footer reveal">
   <div class="container">
     <div class="footer-grid">
-      <div class="footer-brand">
+      <div class="footer-brand" id="sobre">
         <a href={homePath} class="footer-logo" aria-label={t.footer.logoAria}>
           <span class="footer-logo-icon" aria-hidden="true">N</span>
           <span>NOVVYS ENGINEERING</span>
         </a>
         <p class="footer-desc">{t.footer.desc}</p>
-        <div class="footer-socials">
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+        <nav class="footer-socials" aria-label={t.a11y.socialLinks}>
+          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label={t.a11y.linkedIn}>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
               <rect x="2" y="2" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5" />
               <path d="M6 9V14M6 7V7.01M10 14V11C10 9.9 10.9 9 12 9C13.1 9 14 9.9 14 11V14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
             </svg>
           </a>
-          <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <a href="https://github.com" target="_blank" rel="noopener noreferrer" aria-label={t.a11y.gitHub}>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
               <path d="M7 17C4 16 2 13 2 10C2 5.58 5.58 2 10 2C14.42 2 18 5.58 18 10C18 13 16 16 13 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
               <path d="M13 18V15C13 14 13.5 13 14.5 13C15.5 13 16 14 16 15V18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
             </svg>
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label={t.a11y.instagram}>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
               <rect x="2" y="2" width="16" height="16" rx="4" stroke="currentColor" stroke-width="1.5" />
               <circle cx="10" cy="10" r="3.5" stroke="currentColor" stroke-width="1.5" />
               <circle cx="14.5" cy="5.5" r="1" fill="currentColor" />
             </svg>
           </a>
-        </div>
+        </nav>
       </div>
 
       <div class="footer-col">
         <h3 class="footer-col-title">{t.footer.navigation}</h3>
         <ul class="footer-links">
-          {navLinks.map((link) => (
-            <li><a href={link.href}>{link.label}</a></li>
-          ))}
+          {navLinks.map((link) => {
+            const anchorId = link.href.replace("#", "");
+            const skipDuplicateId = ["servicos", "solucoes", "cases"].includes(anchorId);
+            return (
+              <li>
+                <a href={link.href} id={skipDuplicateId ? undefined : anchorId}>
+                  {link.label}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </div>
 
@@ -86,8 +94,8 @@ const currentYear = new Date().getFullYear();
     <div class="footer-bottom">
       <p>&copy; {currentYear} {t.footer.copyright}</p>
       <div class="footer-legal">
-        <a href="#privacidade">{t.footer.privacy}</a>
-        <a href="#termos">{t.footer.terms}</a>
+        <a href="#privacidade" id="privacidade">{t.footer.privacy}</a>
+        <a href="#termos" id="termos">{t.footer.terms}</a>
       </div>
     </div>
   </div>

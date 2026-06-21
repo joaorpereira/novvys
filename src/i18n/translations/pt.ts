@@ -6,6 +6,14 @@ export const pt: Translations = {
     description:
       "Software sob medida, dados e experiências digitais de alto impacto para empresas que querem escalar com tecnologia.",
   },
+  a11y: {
+    skipToContent: "Ir para o conteúdo principal",
+    socialLinks: "Redes sociais",
+    decorativeGlobe: "Globo digital animado — elemento decorativo",
+    linkedIn: "Novvys Engineering no LinkedIn (abre em nova aba)",
+    gitHub: "Novvys Engineering no GitHub (abre em nova aba)",
+    instagram: "Novvys Engineering no Instagram (abre em nova aba)",
+  },
   nav: {
     services: "Serviços",
     solutions: "Soluções",
@@ -118,6 +126,7 @@ export const pt: Translations = {
   process: {
     sectionLabel: "Como trabalhamos",
     title: "Um processo ágil, transparente e eficiente",
+    ariaLabel: "Nosso processo de trabalho",
     steps: [
       {
         title: "Descoberta",
@@ -146,6 +155,7 @@ export const pt: Translations = {
     subtitle:
       "Fale com nossos especialistas e descubra como podemos acelerar a transformação digital da sua empresa.",
     button: "Falar com especialista",
+    ariaLabel: "Entre em contato",
   },
   footer: {
     desc: "Engenharia de software de alto impacto para empresas que querem escalar com tecnologia.",
