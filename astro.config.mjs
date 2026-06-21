@@ -10,6 +10,9 @@ import { SECURITY_HEADERS } from './src/config/security-headers.ts';
 export default defineConfig({
   site: DEPLOY_SITE,
   base: DEPLOY_BASE,
+  build: {
+    inlineStylesheets: "always",
+  },
   integrations: [
     react(),
     sitemap({

@@ -36,11 +36,11 @@ export const pt: Translations = {
     languageMenu: "Idiomas disponíveis",
   },
   hero: {
-    badge: "3 Devs Sênior · Software · Dados · UX",
+    badge: "Software · Dados · UX",
     title: "Sua software house para construir o",
     titleHighlight: "futuro.",
     subtitle:
-      "Somos uma software house em formação: 3 desenvolvedores sênior com experiência em mais de 10 projetos. Entregamos software sob medida, plataformas de dados e produtos digitais com expertise técnica e foco em qualidade.",
+      "Somos uma software house formada por desenvolvedores sênior com experiência em mais de 10 projetos. Entregamos software sob medida, plataformas de dados e produtos digitais com expertise técnica e foco em qualidade.",
     ctaPrimary: "Conhecer serviços",
     ctaSecondary: "Ver cases",
     highlights: [
