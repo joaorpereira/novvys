@@ -317,16 +317,21 @@ export default function GlobeCanvas() {
   };
 
   return (
-    <div className="globe-canvas" onPointerMove={handlePointerMove} aria-hidden="true">
+    <div
+      className="globe-canvas"
+      onPointerMove={handlePointerMove}
+      aria-hidden="true"
+    >
       <style>{`
         .globe-canvas {
           width: 100%;
           height: 100%;
-          min-height: 280px;
-          border-radius: 100% !important;
+          min-height: inherit;
         }
         .globe-canvas canvas {
           display: block;
+          width: 100% !important;
+          height: 100% !important;
         }
       `}</style>
       <Canvas
