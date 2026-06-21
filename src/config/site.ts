@@ -1,8 +1,10 @@
+import { DEPLOY_SITE } from "../../deploy.config.mjs";
+
 export const SITE = {
   name: "Novvys",
   legalName: "Novvys Engineering",
   tagline: "Software House",
-  url: "https://joaorpereira.github.io/novvys",
+  url: DEPLOY_SITE,
   email: "contato@novvys.com",
   phone: "+55-11-99999-9999",
   twitterHandle: "@novvys",

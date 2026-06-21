@@ -1,3 +1,6 @@
-/** Shared deploy settings — keep in sync with the GitHub repo name. */
-export const DEPLOY_SITE = "https://joaorpereira.github.io";
-export const DEPLOY_BASE = "/novvys/";
+/** Shared deploy settings. Override with env vars when building for AWS. */
+export const DEPLOY_SITE = (process.env.SITE_URL ?? "https://joaorpereira.github.io").replace(
+  /\/$/,
+  "",
+);
+export const DEPLOY_BASE = process.env.BASE_PATH ?? "/novvys/";

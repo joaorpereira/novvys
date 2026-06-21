@@ -8,7 +8,9 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
+    "build:aws": "BASE_PATH=/ SITE_URL=${SITE_URL:?Set SITE_URL} astro build",
     "preview": "astro preview",
+    "deploy:aws": "bash deploy.sh",
     "astro": "astro"
   },
   "dependencies": {
