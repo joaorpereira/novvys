@@ -27,19 +27,20 @@ const t = useTranslations(locale);
       <div class="process-steps">
         {
           t.process.steps.map((step, index) => (
-            <div
-              class="process-step reveal"
-              role="listitem"
-              style={`--reveal-delay: ${index * 150}ms`}
-            >
+            <div class="process-step" role="listitem">
               <div class="step-icon-wrap">
                 <div class="step-icon">
                   <Icon name={stepIcons[index]} size={24} />
                 </div>
               </div>
-              <span class="step-number">{stepNumbers[index]}</span>
-              <h3 class="step-title">{step.title}</h3>
-              <p class="step-desc">{step.description}</p>
+              <div
+                class="step-content reveal"
+                style={`--reveal-delay: ${index * 150}ms`}
+              >
+                <span class="step-number">{stepNumbers[index]}</span>
+                <h3 class="step-title">{step.title}</h3>
+                <p class="step-desc">{step.description}</p>
+              </div>
             </div>
           ))
         }
@@ -81,6 +82,8 @@ const t = useTranslations(locale);
     height: 2px;
     background: rgba(7, 17, 31, 0.1);
     overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
   }
 
   .process-line-fill {
@@ -94,6 +97,7 @@ const t = useTranslations(locale);
     grid-template-columns: 1fr;
     gap: 2.5rem;
     position: relative;
+    z-index: 1;
   }
 
   .process-step {
@@ -104,6 +108,13 @@ const t = useTranslations(locale);
     position: relative;
     padding-left: 1.5rem;
     border-left: 2px dotted rgba(37, 99, 235, 0.25);
+  }
+
+  .step-content {
+    display: flex;
+    flex-direction: column;
+    align-items: inherit;
+    text-align: inherit;
   }
 
   .process-step:last-child {
@@ -122,8 +133,10 @@ const t = useTranslations(locale);
     height: 3.5rem;
     border-radius: 50%;
     border: 1px solid rgba(37, 99, 235, 0.2);
-    background: rgba(37, 99, 235, 0.05);
+    background: #ffffff;
     color: #2563eb;
+    position: relative;
+    z-index: 2;
   }
 
   .step-number {
@@ -169,6 +182,11 @@ const t = useTranslations(locale);
       text-align: center;
       padding-left: 0;
       border-left: none;
+    }
+
+    .step-content {
+      align-items: center;
+      text-align: center;
     }
   }
 </style>
