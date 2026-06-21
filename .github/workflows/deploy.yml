@@ -1,6 +1,7 @@
-# Astro static site — do NOT use Jekyll / "Deploy from a branch" in Pages settings.
-# Settings → Pages → Build and deployment → Source: GitHub Actions
-name: Deploy Astro site to GitHub Pages
+# Builds the Astro site and publishes static files to the gh-pages branch.
+# GitHub Pages must deploy from the gh-pages branch (NOT main):
+# Settings → Pages → Deploy from branch → gh-pages / (root)
+name: Build and deploy to GitHub Pages
 
 on:
   push:
@@ -8,16 +9,14 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
-  pages: write
-  id-token: write
+  contents: write
 
 concurrency:
-  group: pages
+  group: gh-pages
   cancel-in-progress: true
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -35,18 +34,9 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Publish dist to gh-pages branch
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          path: dist
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
