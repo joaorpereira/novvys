@@ -1,0 +1,36 @@
+---
+const services = [
+  "Software",
+  "Mobile",
+  "Cloud",
+  "APIs",
+  "Analytics",
+  "Support"
+];
+---
+
+<section>
+  <div class="container">
+    <h2>Soluções completas</h2>
+
+    <div class="grid">
+      {
+        services.map(service => (
+          <div class="card">
+            <h3>{service}</h3>
+            <p>Soluções robustas e escaláveis.</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+</style>

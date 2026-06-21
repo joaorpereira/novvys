@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #07111f;
+  color: white;
+  font-family: Inter, Arial;
+}
+
+.container {
+  width: min(1200px, 92%);
+  margin: auto;
+}
+
+section {
+  padding: 80px 0;
+}
+
+h1 {
+  font-size: 4rem;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+p {
+  color: #b5bfd1;
+  line-height: 1.6;
+}
+
+.btn {
+  display: inline-block;
+  padding: 16px 28px;
+  border-radius: 12px;
+  background: #2563eb;
+  color: white;
+  text-decoration: none;
+}
+
+.card {
+  background: #0d1b2d;
+  border: 1px solid #1e3a5f;
+  border-radius: 20px;
+  padding: 32px;
+}
