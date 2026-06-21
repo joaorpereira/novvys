@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://joaorpereira.github.io/novvys/sitemap-index.xml

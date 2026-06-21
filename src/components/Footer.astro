@@ -9,7 +9,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = useTranslations(locale);
-const navLinks = getNavLinks(t);
+const navLinks = getNavLinks(t, locale);
 const homePath = getLocalePath(locale);
 const currentYear = new Date().getFullYear();
 ---
@@ -26,7 +26,7 @@ const currentYear = new Date().getFullYear();
           </span>
         </a>
         <p class="footer-desc">{t.footer.desc}</p>
-        <nav class="footer-socials" aria-label={t.a11y.socialLinks}>
+        <!-- <nav class="footer-socials" aria-label={t.a11y.socialLinks}>
           <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label={t.a11y.linkedIn}>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
               <rect x="2" y="2" width="16" height="16" rx="2" stroke="currentColor" stroke-width="1.5" />
@@ -46,7 +46,7 @@ const currentYear = new Date().getFullYear();
               <circle cx="14.5" cy="5.5" r="1" fill="currentColor" />
             </svg>
           </a>
-        </nav>
+        </nav> -->
       </div>
 
       <div class="footer-col">
@@ -54,7 +54,7 @@ const currentYear = new Date().getFullYear();
         <ul class="footer-links">
           {navLinks.map((link) => {
             const anchorId = link.href.replace("#", "");
-            const skipDuplicateId = ["servicos", "solucoes", "cases"].includes(anchorId);
+            const skipDuplicateId = ["servicos", "cases"].includes(anchorId);
             return (
               <li>
                 <a href={link.href} id={skipDuplicateId ? undefined : anchorId}>
@@ -76,18 +76,9 @@ const currentYear = new Date().getFullYear();
       </div>
 
       <div class="footer-col">
-        <h3 class="footer-col-title">{t.footer.solutions}</h3>
-        <ul class="footer-links">
-          {t.footer.solutionLinks.map((link) => (
-            <li><a href="#solucoes">{link}</a></li>
-          ))}
-        </ul>
-      </div>
-
-      <div class="footer-col">
         <h3 class="footer-col-title">{t.footer.contact}</h3>
         <ul class="footer-links footer-contact">
-          <li><a href="mailto:contato@novvys.com">contato@novvys.com</a></li>
+          <li><a href="mailto:joao@novvys.com">joao@novvys.com</a></li>
           <li><a href="tel:+5511999999999">+55 (11) 99999-9999</a></li>
           <li>{t.footer.location}</li>
         </ul>
@@ -256,7 +247,7 @@ const currentYear = new Date().getFullYear();
 
   @media (min-width: 1024px) {
     .footer-grid {
-      grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
       gap: 2rem;
     }
 

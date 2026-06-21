@@ -1,0 +1,51 @@
+---
+import Layout from "../../../layouts/Layout.astro";
+import Header from "../../../components/Header.astro";
+import Footer from "../../../components/Footer.astro";
+import BlogPostPage from "../../../components/BlogPostPage.astro";
+import { getAllPosts } from "../../../lib/blog";
+import { getPostBySlug } from "../../../lib/blogPostContent";
+import { useTranslations, getBlogPath, getBlogPostPath } from "../../../i18n";
+
+export function getStaticPaths() {
+  return getAllPosts().map((post) => ({
+    params: { slug: post.slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const locale = "es" as const;
+const t = useTranslations(locale);
+const post = getPostBySlug(slug!, locale);
+
+if (!post) {
+  return Astro.redirect(getBlogPath(locale));
+}
+
+const blogPath = getBlogPath(locale);
+const postPath = getBlogPostPath(locale, post.slug);
+---
+
+<Layout
+  locale={locale}
+  pageSeo={{
+    type: "article",
+    title: t.blog.postMetaTitle(post.title),
+    description: post.description,
+    canonicalPath: postPath,
+    publishedTime: post.date,
+    author: post.author,
+    category: post.category,
+    breadcrumbs: [
+      { name: "Novvys", path: "/" },
+      { name: "Blog", path: blogPath },
+      { name: post.title, path: postPath },
+    ],
+  }}
+>
+  <Header locale={locale} />
+  <main aria-label={t.a11y.mainContent}>
+    <BlogPostPage post={post} locale={locale} />
+  </main>
+  <Footer locale={locale} />
+</Layout>

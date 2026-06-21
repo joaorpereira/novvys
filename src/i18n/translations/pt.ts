@@ -20,9 +20,8 @@ export const pt: Translations = {
     services: "Serviços",
     solutions: "Soluções",
     cases: "Cases",
-    about: "Sobre",
+    contact: "Contato",
     blog: "Blog",
-    careers: "Carreiras",
     cta: "Falar com especialista",
   },
   header: {
@@ -174,7 +173,7 @@ export const pt: Translations = {
     services: "Serviços",
     solutions: "Soluções",
     contact: "Contato",
-    location: "São Paulo, Brasil",
+    location: "Belo Horizonte, Brasil",
     copyright: "Novvys Engineering. Todos os direitos reservados.",
     privacy: "Política de Privacidade",
     terms: "Termos de Uso",
@@ -195,5 +194,22 @@ export const pt: Translations = {
       "Educação",
       "Indústria",
     ],
+  },
+  blog: {
+    sectionLabel: "Conteúdo & Insights",
+    title: "Blog Novvys",
+    description:
+      "Artigos sobre engenharia de software, arquitetura, dados e melhores práticas para times que querem construir produtos digitais de alto impacto.",
+    readMore: "Ler artigo",
+    readMinutes: "min de leitura",
+    backToBlog: "Voltar ao blog",
+    publishedOn: "Publicado em",
+    by: "por",
+    allPosts: "Todos os artigos",
+    noPostsFound: "Nenhum artigo encontrado.",
+    metaTitle: "Blog — Novvys Engineering",
+    metaDescription:
+      "Artigos sobre engenharia de software, arquitetura, dados e tecnologia para times que constroem produtos digitais de alto impacto.",
+    postMetaTitle: (title: string) => `${title} — Novvys Blog`,
   },
 };

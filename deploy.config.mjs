@@ -3,4 +3,4 @@ export const DEPLOY_SITE = (process.env.SITE_URL ?? "https://joaorpereira.github
   /\/$/,
   "",
 );
-export const DEPLOY_BASE = process.env.BASE_PATH ?? "/novvys/";
+export const DEPLOY_BASE = process.env.BASE_PATH ?? "/";

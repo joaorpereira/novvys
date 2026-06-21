@@ -7,8 +7,8 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
-    "build:aws": "BASE_PATH=/ SITE_URL=${SITE_URL:?Set SITE_URL} astro build",
+    "build": "node scripts/validate-blog.mjs && astro build",
+    "build:aws": "node scripts/validate-blog.mjs && BASE_PATH=/ SITE_URL=${SITE_URL:?Set SITE_URL} astro build",
     "preview": "astro preview",
     "deploy:aws": "bash deploy.sh",
     "astro": "astro"
@@ -25,6 +25,7 @@
     "@types/three": "^0.184.1",
     "astro": "^6.4.7",
     "framer-motion": "^12.40.0",
+    "marked": "^18.0.5",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "tailwindcss": "^4.3.1",

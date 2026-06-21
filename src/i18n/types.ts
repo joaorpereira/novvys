@@ -16,9 +16,8 @@ export interface Translations {
     services: string;
     solutions: string;
     cases: string;
-    about: string;
+    contact: string;
     blog: string;
-    careers: string;
     cta: string;
   };
   header: {
@@ -91,5 +90,20 @@ export interface Translations {
     logoAria: string;
     serviceLinks: string[];
     solutionLinks: string[];
+  };
+  blog: {
+    sectionLabel: string;
+    title: string;
+    description: string;
+    readMore: string;
+    readMinutes: string;
+    backToBlog: string;
+    publishedOn: string;
+    by: string;
+    allPosts: string;
+    noPostsFound: string;
+    metaTitle: string;
+    metaDescription: string;
+    postMetaTitle: (title: string) => string;
   };
 }

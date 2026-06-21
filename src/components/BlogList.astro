@@ -1,0 +1,80 @@
+---
+import type { Locale } from "../i18n/config";
+import { useTranslations } from "../i18n";
+import type { BlogPostMeta } from "../lib/blog";
+import BlogCard from "./BlogCard.astro";
+
+interface Props {
+  posts: BlogPostMeta[];
+  locale: Locale;
+}
+
+const { posts, locale } = Astro.props;
+const t = useTranslations(locale);
+---
+
+<section class="blog-list-section" aria-labelledby="blog-heading">
+  <div class="container">
+    <header class="blog-list-header reveal">
+      <span class="section-label">{t.blog.sectionLabel}</span>
+      <h1 id="blog-heading" class="blog-list-title">{t.blog.title}</h1>
+      <p class="blog-list-description">{t.blog.description}</p>
+    </header>
+
+    {
+      posts.length === 0 ? (
+        <p class="blog-empty">{t.blog.noPostsFound}</p>
+      ) : (
+        <ul class="blog-grid" role="list">
+          {posts.map((post, index) => (
+            <li>
+              <BlogCard post={post} locale={locale} index={index} />
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  .blog-list-section {
+    padding: 8rem 0 6rem;
+    min-height: 100vh;
+  }
+
+  .blog-list-header {
+    max-width: 680px;
+    margin-bottom: 4rem;
+  }
+
+  .blog-list-title {
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: #ffffff;
+    margin-bottom: 1rem;
+  }
+
+  .blog-list-description {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(340px, 100%), 1fr));
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .blog-empty {
+    color: var(--text-muted);
+    font-size: 1rem;
+    padding: 3rem 0;
+  }
+</style>

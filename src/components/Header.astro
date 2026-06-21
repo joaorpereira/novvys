@@ -10,7 +10,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = useTranslations(locale);
-const navLinks = getNavLinks(t);
+const navLinks = getNavLinks(t, locale);
 const homePath = getLocalePath(locale);
 ---
 
