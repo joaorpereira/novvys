@@ -102,25 +102,31 @@ export const en: Translations = {
     ],
   },
   cases: {
-    sectionLabel: "Success cases",
-    title: "Results that drive impact",
-    viewAll: "View all cases",
-    viewCase: "View case",
+    sectionLabel: "Projects",
+    title: "Products we've built",
+    viewAll: "View projects",
+    viewCase: "Visit project",
     items: [
       {
         tag: "Fintech",
-        title: "Digital payments platform",
-        description: "Full transaction processing system with high availability.",
+        title: "MFCheck",
+        description:
+          "Credit, risk, and compliance platform with CPF/CNPJ lookups, intelligent scoring, and reports for credit decisions.",
+        url: "https://www.mfcheck.com.br/",
       },
       {
-        tag: "Logistics",
-        title: "Logistics management ERP",
-        description: "Route automation, real-time tracking, and operational dashboard.",
+        tag: "Climate",
+        title: "Climatebase",
+        description:
+          "Global climate jobs platform connecting professionals with sustainability career opportunities worldwide.",
+        url: "https://climatebase.org/",
       },
       {
-        tag: "Healthcare",
-        title: "Integrated telemedicine",
-        description: "Online consultation platform with EHR and HL7 integration.",
+        tag: "Climate",
+        title: "Climate Week Network",
+        description:
+          "Global network connecting Climate Weeks across cities worldwide, with event calendars and tools for organizers.",
+        url: "https://climateweeknetwork.org/",
       },
     ],
   },

@@ -63,7 +63,7 @@ export interface Translations {
     title: string;
     viewAll: string;
     viewCase: string;
-    items: { tag: string; title: string; description: string }[];
+    items: { tag: string; title: string; description: string; url: string }[];
   };
   process: {
     sectionLabel: string;

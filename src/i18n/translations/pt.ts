@@ -106,28 +106,31 @@ export const pt: Translations = {
     ],
   },
   cases: {
-    sectionLabel: "Cases de sucesso",
-    title: "Resultados que geram impacto",
-    viewAll: "Ver todos os cases",
-    viewCase: "Ver case",
+    sectionLabel: "Projetos",
+    title: "Produtos que desenvolvemos",
+    viewAll: "Ver projetos",
+    viewCase: "Visitar projeto",
     items: [
       {
         tag: "Fintech",
-        title: "Plataforma de pagamentos digitais",
+        title: "MFCheck",
         description:
-          "Sistema completo de processamento de transações com alta disponibilidade.",
+          "Plataforma de crédito, risco e compliance com consultas CPF/CNPJ, score inteligente e relatórios para decisões de crédito.",
+        url: "https://www.mfcheck.com.br/",
       },
       {
-        tag: "Logística",
-        title: "ERP de gestão logística",
+        tag: "Clima",
+        title: "Climatebase",
         description:
-          "Automação de rotas, rastreamento em tempo real e dashboard operacional.",
+          "Plataforma global de empregos e talentos em clima, conectando profissionais a oportunidades no setor de sustentabilidade.",
+        url: "https://climatebase.org/",
       },
       {
-        tag: "Saúde",
-        title: "Telemedicina integrada",
+        tag: "Clima",
+        title: "Climate Week Network",
         description:
-          "Plataforma de consultas online com prontuário eletrônico e integração HL7.",
+          "Rede global que conecta Climate Weeks em cidades do mundo todo, com calendário de eventos e ferramentas para organizadores.",
+        url: "https://climateweeknetwork.org/",
       },
     ],
   },
