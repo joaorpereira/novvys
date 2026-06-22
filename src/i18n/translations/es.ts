@@ -4,7 +4,7 @@ export const es: Translations = {
   meta: {
     title: "Novvys — Software house en Belo Horizonte | Desarrollo a medida",
     description:
-      "Software house con equipo sénior de 3 desarrolladores y experiencia en más de 10 proyectos. Desarrollo a medida, plataformas de datos y productos digitales con calidad y expertise en Belo Horizonte, Brasil.",
+      "Software house con equipo sénior de desarrolladores y experiencia en más de 10 proyectos. Desarrollo a medida, plataformas de datos y productos digitales con calidad y expertise en Belo Horizonte, Brasil.",
   },
   a11y: {
     skipToContent: "Ir al contenido principal",
@@ -36,11 +36,11 @@ export const es: Translations = {
     languageMenu: "Idiomas disponibles",
   },
   hero: {
-    badge: "3 Devs Sénior · Software · Datos · UX",
+    badge: "Software · Datos · UX",
     title: "Su software house para construir el",
     titleHighlight: "futuro.",
     subtitle:
-      "Somos una software house en formación: 3 desarrolladores sénior con experiencia en más de 10 proyectos. Entregamos software a medida, plataformas de datos y productos digitales con expertise técnica y foco en calidad.",
+      "Somos una software house en formación: desarrolladores sénior con experiencia en más de 10 proyectos. Entregamos software a medida, plataformas de datos y productos digitales con expertise técnica y foco en calidad.",
     ctaPrimary: "Conocer servicios",
     ctaSecondary: "Ver cases",
     highlights: [
@@ -51,7 +51,7 @@ export const es: Translations = {
     trustLabel: "Indicadores de confianza",
     trustBadges: [
       { title: "10+ Proyectos", subtitle: "Experiencia acumulada del equipo" },
-      { title: "Equipo Sénior", subtitle: "3 especialistas dedicados" },
+      { title: "Equipo Sénior", subtitle: "Especialistas dedicados" },
       { title: "Calidad", subtitle: "Ingeniería con excelencia" },
     ],
     scrollLabel: "Scroll",
@@ -72,7 +72,7 @@ export const es: Translations = {
     sectionLabel: "Qué hacemos",
     title: "Software house ágil para empresas que valoran la calidad",
     description:
-      "Equipo sénior de 3 desarrolladores con experiencia en más de 10 proyectos. Combinamos ingeniería de software, datos y diseño para entregar productos digitales con expertise y atención al detalle.",
+      "Equipo sénior de desarrolladores con experiencia en más de 10 proyectos. Combinamos ingeniería de software, datos y diseño para entregar productos digitales con expertise y atención al detalle.",
     learnMore: "Saber más sobre",
     items: [
       {
@@ -169,7 +169,7 @@ export const es: Translations = {
     ariaLabel: "Ponerse en contacto",
   },
   footer: {
-    desc: "Software house en Belo Horizonte con equipo sénior de 3 desarrolladores. Experiencia en más de 10 proyectos y foco en calidad en cada entrega.",
+    desc: "Software house en Belo Horizonte con equipo sénior de desarrolladores. Experiencia en más de 10 proyectos y foco en calidad en cada entrega.",
     navigation: "Navegación",
     services: "Servicios",
     solutions: "Soluciones",

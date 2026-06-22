@@ -4,7 +4,7 @@ export const pt: Translations = {
   meta: {
     title: "Novvys — Software house em Belo Horizonte | Desenvolvimento sob medida",
     description:
-      "Software house com time sênior de 3 desenvolvedores e experiência em 10+ projetos. Desenvolvimento sob medida, dados e produtos digitais com qualidade e expertise em Belo Horizonte, Brasil.",
+      "Software house com time sênior de desenvolvedores e experiência em 10+ projetos. Desenvolvimento sob medida, dados e produtos digitais com qualidade e expertise em Belo Horizonte, Brasil.",
   },
   a11y: {
     skipToContent: "Ir para o conteúdo principal",
@@ -51,7 +51,7 @@ export const pt: Translations = {
     trustLabel: "Indicadores de confiança",
     trustBadges: [
       { title: "10+ Projetos", subtitle: "Experiência acumulada do time" },
-      { title: "Time Sênior", subtitle: "3 especialistas dedicados" },
+      { title: "Time Sênior", subtitle: "Especialistas dedicados" },
       { title: "Qualidade", subtitle: "Engenharia com excelência" },
     ],
     scrollLabel: "Scroll",
@@ -72,7 +72,7 @@ export const pt: Translations = {
     sectionLabel: "O que fazemos",
     title: "Software house enxuta para empresas que valorizam qualidade",
     description:
-      "Time sênior de 3 desenvolvedores com experiência em 10+ projetos. Combinamos engenharia de software, dados e design para entregar produtos digitais com expertise e atenção aos detalhes.",
+      "Time sênior de desenvolvedores com experiência em 10+ projetos. Combinamos engenharia de software, dados e design para entregar produtos digitais com expertise e atenção aos detalhes.",
     learnMore: "Saiba mais sobre",
     items: [
       {
@@ -169,7 +169,7 @@ export const pt: Translations = {
     ariaLabel: "Entre em contato",
   },
   footer: {
-    desc: "Software house em Belo Horizonte com time sênior de 3 desenvolvedores. Experiência em 10+ projetos e foco em qualidade em cada entrega.",
+    desc: "Software house em Belo Horizonte com time sênior de desenvolvedores. Experiência em 10+ projetos e foco em qualidade em cada entrega.",
     navigation: "Navegação",
     services: "Serviços",
     solutions: "Soluções",

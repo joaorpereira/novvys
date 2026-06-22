@@ -4,7 +4,7 @@ export const en: Translations = {
   meta: {
     title: "Novvys — Software house in Belo Horizonte | Custom development",
     description:
-      "Software house with a senior team of 3 developers and experience across 10+ projects. Custom software, data platforms, and digital products with quality and expertise in Belo Horizonte, Brazil.",
+      "Software house with a senior team of developers and experience across 10+ projects. Custom software, data platforms, and digital products with quality and expertise in Belo Horizonte, Brazil.",
   },
   a11y: {
     skipToContent: "Skip to main content",
@@ -36,11 +36,11 @@ export const en: Translations = {
     languageMenu: "Available languages",
   },
   hero: {
-    badge: "3 Senior Devs · Software · Data · UX",
+    badge: "Software · Data · UX",
     title: "Your software house to build the",
     titleHighlight: "future.",
     subtitle:
-      "We are an emerging software house: 3 senior developers with experience across 10+ projects. We deliver custom software, data platforms, and digital products with technical expertise and a focus on quality.",
+      "We are an emerging software house: senior developers with experience across 10+ projects. We deliver custom software, data platforms, and digital products with technical expertise and a focus on quality.",
     ctaPrimary: "Explore services",
     ctaSecondary: "View cases",
     highlights: [
@@ -51,7 +51,7 @@ export const en: Translations = {
     trustLabel: "Trust indicators",
     trustBadges: [
       { title: "10+ Projects", subtitle: "Collective team experience" },
-      { title: "Senior Team", subtitle: "3 dedicated specialists" },
+      { title: "Senior Team", subtitle: "Dedicated specialists" },
       { title: "Quality", subtitle: "Engineering excellence" },
     ],
     scrollLabel: "Scroll",
@@ -72,7 +72,7 @@ export const en: Translations = {
     sectionLabel: "What we do",
     title: "A lean software house for companies that value quality",
     description:
-      "A senior team of 3 developers with experience across 10+ projects. We combine software engineering, data, and design to deliver digital products with expertise and attention to detail.",
+      "A senior team of developers with experience across 10+ projects. We combine software engineering, data, and design to deliver digital products with expertise and attention to detail.",
     learnMore: "Learn more about",
     items: [
       {
@@ -165,7 +165,7 @@ export const en: Translations = {
     ariaLabel: "Get in touch",
   },
   footer: {
-    desc: "Software house in Belo Horizonte with a senior team of 3 developers. Experience across 10+ projects with a focus on quality in every delivery.",
+    desc: "Software house in Belo Horizonte with a senior team of developers. Experience across 10+ projects with a focus on quality in every delivery.",
     navigation: "Navigation",
     services: "Services",
     solutions: "Solutions",

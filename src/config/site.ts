@@ -13,7 +13,6 @@ export const SITE = {
     region: "MG",
     country: "BR",
   },
-  teamSize: 3,
   projectsDelivered: 10,
 } as const;
 

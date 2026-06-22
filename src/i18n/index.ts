@@ -1,6 +1,6 @@
 import type { Locale } from "./config";
 import { getLocalePath } from "./config";
-import type { Translations } from "../types";
+import type { Translations } from "./types";
 import { pt } from "./translations/pt";
 import { en } from "./translations/en";
 import { es } from "./translations/es";
