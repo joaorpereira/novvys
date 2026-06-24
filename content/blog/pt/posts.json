@@ -6,29 +6,5 @@
     "date": "2026-06-15",
     "author": "Equipe Novvys",
     "category": "Engenharia"
-  },
-  {
-    "slug": "arquitetura-de-microsservicos-quando-faz-sentido",
-    "title": "Arquitetura de microsserviços: quando realmente faz sentido adotar",
-    "description": "Microsserviços não são a solução para tudo. Saiba quando essa arquitetura agrega valor e quando um monólito bem estruturado é a melhor escolha.",
-    "date": "2026-06-08",
-    "author": "Equipe Novvys",
-    "category": "Arquitetura"
-  },
-  {
-    "slug": "dados-e-ia-para-decisoes-estrategicas",
-    "title": "Como usar dados e IA para tomar decisões estratégicas no seu negócio",
-    "description": "Explore como pipelines de dados, analytics e modelos de IA podem transformar informações brutas em vantagem competitiva real.",
-    "date": "2026-06-01",
-    "author": "Equipe Novvys",
-    "category": "Dados & IA"
-  },
-  {
-    "slug": "devops-e-cultura-de-entrega-continua",
-    "title": "DevOps e cultura de entrega contínua: da teoria à prática",
-    "description": "Entenda como implementar uma cultura DevOps efetiva, automatizar deploys e reduzir o tempo entre a ideia e o software em produção.",
-    "date": "2026-05-22",
-    "author": "Equipe Novvys",
-    "category": "DevOps"
   }
 ]
