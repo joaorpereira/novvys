@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 340" role="img" aria-label="Fluxo de crit&#233;rios para escolher stack">
+  <defs>
+    <linearGradient id="scr-pt-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1b2d"/>
+      <stop offset="100%" stop-color="#07111f"/>
+    </linearGradient>
+    <marker id="scr-pt-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#60a5fa"/>
+    </marker>
+  </defs>
+  <rect width="760" height="340" rx="12" fill="url(#scr-pt-bg)" stroke="#60a5fa" stroke-opacity="0.25" stroke-width="1"/>
+  <text x="380" y="32" text-anchor="middle" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="13" font-weight="600" letter-spacing="0.08em">CRIT&#201;RIOS DE DECIS&#195;O</text>
+  <g font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#f8fafc">
+    <rect x="40" y="56" width="200" height="56" rx="8" fill="#2563eb" fill-opacity="0.15" stroke="#2563eb"/>
+    <text x="140" y="82" text-anchor="middle">1. Problema</text>
+    <text x="140" y="100" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="500">carga e fluxo</text>
+    <rect x="280" y="56" width="200" height="56" rx="8" fill="#2563eb" fill-opacity="0.12" stroke="#60a5fa" stroke-opacity="0.4"/>
+    <text x="380" y="82" text-anchor="middle">2. Time</text>
+    <text x="380" y="100" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="500">conhecimento atual</text>
+    <rect x="520" y="56" width="200" height="56" rx="8" fill="#2563eb" fill-opacity="0.12" stroke="#60a5fa" stroke-opacity="0.4"/>
+    <text x="620" y="82" text-anchor="middle">3. Ecossistema</text>
+    <text x="620" y="100" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="500">libs e contrata&#231;&#227;o</text>
+    <path d="M240 84 H280" stroke="#60a5fa" stroke-width="2" marker-end="url(#scr-pt-arrow)"/>
+    <path d="M480 84 H520" stroke="#60a5fa" stroke-width="2" marker-end="url(#scr-pt-arrow)"/>
+    <rect x="160" y="148" width="200" height="56" rx="8" fill="#2563eb" fill-opacity="0.12" stroke="#60a5fa" stroke-opacity="0.4"/>
+    <text x="260" y="174" text-anchor="middle">4. Custo total</text>
+    <text x="260" y="192" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="500">infra + manuten&#231;&#227;o</text>
+    <rect x="400" y="148" width="200" height="56" rx="8" fill="#2563eb" fill-opacity="0.12" stroke="#60a5fa" stroke-opacity="0.4"/>
+    <text x="500" y="174" text-anchor="middle">5. Escala</text>
+    <text x="500" y="192" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="500">limite e redesign</text>
+    <path d="M620 112 V130 H500 V148" stroke="#60a5fa" stroke-width="2" fill="none" marker-end="url(#scr-pt-arrow)"/>
+    <path d="M140 112 V130 H260 V148" stroke="#60a5fa" stroke-width="2" fill="none" marker-end="url(#scr-pt-arrow)"/>
+    <rect x="230" y="248" width="300" height="56" rx="28" fill="#2563eb" stroke="#3b82f6"/>
+    <text x="380" y="274" text-anchor="middle" fill="#fff">Stack recomendada</text>
+    <text x="380" y="292" text-anchor="middle" fill="#dbeafe" font-size="11" font-weight="500">para o contexto do produto</text>
+    <path d="M260 204 V226 H380 V248" stroke="#60a5fa" stroke-width="2" fill="none" marker-end="url(#scr-pt-arrow)"/>
+    <path d="M500 204 V226 H380 V248" stroke="#60a5fa" stroke-width="2" fill="none"/>
+  </g>
+</svg>

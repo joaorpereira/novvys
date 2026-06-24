@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" role="img" aria-label="Combina&#231;&#245;es de stack e casos de uso">
+  <defs>
+    <linearGradient id="sco-pt-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1b2d"/>
+      <stop offset="100%" stop-color="#07111f"/>
+    </linearGradient>
+  </defs>
+  <rect width="760" height="360" rx="12" fill="url(#sco-pt-bg)" stroke="#60a5fa" stroke-opacity="0.25" stroke-width="1"/>
+  <text x="380" y="32" text-anchor="middle" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="13" font-weight="600" letter-spacing="0.08em">COMBINA&#199;&#213;ES FREQUENTES</text>
+  <g font-family="system-ui,sans-serif">
+    <rect x="40" y="56" width="320" height="130" rx="10" fill="#2563eb" fill-opacity="0.1" stroke="#60a5fa" stroke-opacity="0.35"/>
+    <text x="60" y="84" fill="#60a5fa" font-size="12" font-weight="700">React + Node + PostgreSQL</text>
+    <text x="60" y="110" fill="#e2e8f0" font-size="13" font-weight="600">SaaS e apps corporativas</text>
+    <text x="60" y="132" fill="#94a3b8" font-size="12">Time enxuto, entrega r&#225;pida</text>
+    <text x="60" y="154" fill="#94a3b8" font-size="12">Escala horizontal moderada</text>
+    <rect x="400" y="56" width="320" height="130" rx="10" fill="#2563eb" fill-opacity="0.1" stroke="#60a5fa" stroke-opacity="0.35"/>
+    <text x="420" y="84" fill="#60a5fa" font-size="12" font-weight="700">Next.js + TypeScript</text>
+    <text x="420" y="110" fill="#e2e8f0" font-size="13" font-weight="600">SEO e performance</text>
+    <text x="420" y="132" fill="#94a3b8" font-size="12">Conte&#250;do index&#225;vel</text>
+    <text x="420" y="154" fill="#94a3b8" font-size="12">Carregamento r&#225;pido</text>
+    <rect x="40" y="206" width="320" height="130" rx="10" fill="#2563eb" fill-opacity="0.1" stroke="#60a5fa" stroke-opacity="0.35"/>
+    <text x="60" y="234" fill="#60a5fa" font-size="12" font-weight="700">Python + FastAPI</text>
+    <text x="60" y="260" fill="#e2e8f0" font-size="13" font-weight="600">APIs e dados</text>
+    <text x="60" y="282" fill="#94a3b8" font-size="12">Processamento de dados</text>
+    <text x="60" y="304" fill="#94a3b8" font-size="12">Integra&#231;&#227;o com modelos</text>
+    <rect x="400" y="206" width="320" height="130" rx="10" fill="#2563eb" fill-opacity="0.1" stroke="#60a5fa" stroke-opacity="0.35"/>
+    <text x="420" y="234" fill="#60a5fa" font-size="12" font-weight="700">React Native / Flutter</text>
+    <text x="420" y="260" fill="#e2e8f0" font-size="13" font-weight="600">Mobile multiplataforma</text>
+    <text x="420" y="282" fill="#94a3b8" font-size="12">iOS e Android</text>
+    <text x="420" y="304" fill="#94a3b8" font-size="12">Base de c&#243;digo &#250;nica</text>
+  </g>
+</svg>

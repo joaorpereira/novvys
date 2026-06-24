@@ -1,0 +1,15 @@
+---
+import { marked } from "marked";
+
+interface Props {
+  content: string;
+}
+
+const { content } = Astro.props;
+
+marked.setOptions({ gfm: true, breaks: false });
+
+const html = marked.parse(content) as string;
+---
+
+<div class="blog-content" set:html={html} />

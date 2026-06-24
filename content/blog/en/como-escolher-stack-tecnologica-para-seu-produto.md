@@ -10,13 +10,28 @@ At Novvys, the stack conversation shows up before the first line of code. Every 
 
 Not as a ritual. As a cost issue. Changing language, framework, or database after the product already has users and integrations eats time that most companies do not budget for upfront.
 
+<figure class="blog-figure">
+  <img src="/images/blog/stack-migration-cost-en.svg" alt="Chart showing stack migration cost rising as the product gains users, integrations, and scale" width="760" height="220" loading="lazy" decoding="async" />
+  <figcaption>Stack migration cost rises as the product matures.</figcaption>
+</figure>
+
 ## What the stack actually defines
 
 Stack here means language, framework, database, infrastructure, and how the team works day to day. That affects delivery timeline, hiring, cloud cost, and what you can change in six months without stopping the product.
 
+<figure class="blog-figure">
+  <img src="/images/blog/stack-layers-en.svg" alt="Layered diagram: language, framework, database, infrastructure, and team" width="760" height="300" loading="lazy" decoding="async" />
+  <figcaption>Each stack layer affects timeline, cost, and maintenance.</figcaption>
+</figure>
+
 Migrating stacks mid-flight is possible. I have seen it happen. I have also seen timelines double because of it.
 
 ## What I check before recommending anything
+
+<figure class="blog-figure">
+  <img src="/images/blog/stack-criteria-en.svg" alt="Flowchart with five criteria: problem, team, ecosystem, total cost, and scale, converging to a recommended stack" width="760" height="340" loading="lazy" decoding="async" />
+  <figcaption>Five criteria I use before suggesting any combination.</figcaption>
+</figure>
 
 ### The problem leads
 
@@ -40,6 +55,11 @@ Some stacks scale horizontally without much surgery. Others need a redesign earl
 
 ## Combinations that show up often
 
+<figure class="blog-figure">
+  <img src="/images/blog/stack-combinations-en.svg" alt="Comparison grid of four stack combinations: React with Node, Next.js, Python with FastAPI, and React Native or Flutter" width="760" height="360" loading="lazy" decoding="async" />
+  <figcaption>Combinations that show up often in the projects we review.</figcaption>
+</figure>
+
 React, Node, and PostgreSQL tend to work for SaaS and corporate web apps with a lean team.
 
 Next.js with TypeScript comes in when SEO and load time affect revenue.
@@ -51,6 +71,11 @@ React Native or Flutter appear when the same codebase must run on iOS and Androi
 None of these combinations is a universal default. Context decides.
 
 ## How I apply this in practice
+
+<figure class="blog-figure">
+  <img src="/images/blog/stack-decision-en.svg" alt="Diagram with four context inputs (team, product stage, user volume, and budget) leading to a stack recommendation" width="760" height="280" loading="lazy" decoding="async" />
+  <figcaption>Project context before any recommendation.</figcaption>
+</figure>
 
 Before suggesting any combination, I look at team size, product stage, expected user volume, and budget. The goal is to avoid complexity nobody will operate and, at the other end, to avoid tools that block growth within twelve months.
 

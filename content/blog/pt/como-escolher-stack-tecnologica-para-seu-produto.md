@@ -10,13 +10,28 @@ Na Novvys, a conversa sobre stack aparece antes da primeira linha de código. Se
 
 Não por ritual. Por custo. Trocar linguagem, framework ou banco depois que o produto já tem usuário e integração consome tempo que a maioria das empresas não coloca no orçamento inicial.
 
+<figure class="blog-figure">
+  <img src="/images/blog/stack-migration-cost-pt.svg" alt="Gráfico mostrando que o custo de migrar stack aumenta conforme o produto ganha usuários, integrações e escala" width="760" height="220" loading="lazy" decoding="async" />
+  <figcaption>O custo de trocar stack sobe conforme o produto amadurece.</figcaption>
+</figure>
+
 ## O que a stack define de fato
 
 Stack, aqui, é linguagem, framework, banco, infra e o jeito que o time trabalha no dia a dia. Isso afeta prazo de entrega, facilidade de contratar, custo de cloud e o que dá para mudar em seis meses sem parar o produto.
 
+<figure class="blog-figure">
+  <img src="/images/blog/stack-layers-pt.svg" alt="Diagrama em camadas: linguagem, framework, banco de dados, infraestrutura e time" width="760" height="300" loading="lazy" decoding="async" />
+  <figcaption>Cada camada da stack impacta prazo, custo e manutenção.</figcaption>
+</figure>
+
 Migrar stack no meio do caminho é viável. Eu já vi acontecer. Também já vi cronograma dobrar por causa disso.
 
 ## O que eu verifico antes de recomendar
+
+<figure class="blog-figure">
+  <img src="/images/blog/stack-criteria-pt.svg" alt="Fluxograma com cinco critérios: problema, time, ecossistema, custo total e escala, convergindo para a stack recomendada" width="760" height="340" loading="lazy" decoding="async" />
+  <figcaption>Cinco critérios que uso antes de sugerir qualquer combinação.</figcaption>
+</figure>
 
 ### O problema manda
 
@@ -40,6 +55,11 @@ Algumas stacks escalam horizontalmente sem muita cirurgia. Outras pedem redesign
 
 ## Combinações que aparecem com frequência
 
+<figure class="blog-figure">
+  <img src="/images/blog/stack-combinations-pt.svg" alt="Quadro comparando quatro combinações de stack: React com Node, Next.js, Python com FastAPI e React Native ou Flutter" width="760" height="360" loading="lazy" decoding="async" />
+  <figcaption>Combinações que aparecem com frequência nos projetos que analisamos.</figcaption>
+</figure>
+
 React, Node e PostgreSQL costumam servir SaaS e aplicações web corporativas com time enxuto.
 
 Next.js com TypeScript entra quando SEO e tempo de carregamento pesam na receita.
@@ -51,6 +71,11 @@ React Native ou Flutter aparecem quando o mesmo código precisa rodar em iOS e A
 Nenhuma dessas combinações é padrão universal. Contexto manda.
 
 ## Como uso isso na prática
+
+<figure class="blog-figure">
+  <img src="/images/blog/stack-decision-pt.svg" alt="Diagrama com quatro entradas de contexto (time, fase do produto, volume de usuários e orçamento) levando à recomendação de stack" width="760" height="280" loading="lazy" decoding="async" />
+  <figcaption>Contexto do projeto antes de qualquer recomendação.</figcaption>
+</figure>
 
 Antes de sugerir qualquer combinação, olho tamanho do time, fase do produto, volume esperado de usuários e orçamento. O objetivo é evitar complexidade que ninguém vai operar e, no outro extremo, escolher ferramenta que trava o crescimento em doze meses.
 

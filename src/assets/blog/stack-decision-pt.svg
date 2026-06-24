@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 280" role="img" aria-label="Contexto analisado antes de recomendar stack">
+  <defs>
+    <linearGradient id="sde-pt-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1b2d"/>
+      <stop offset="100%" stop-color="#07111f"/>
+    </linearGradient>
+    <marker id="sde-pt-arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M0,0 L8,4 L0,8 Z" fill="#60a5fa"/>
+    </marker>
+  </defs>
+  <rect width="760" height="280" rx="12" fill="url(#sde-pt-bg)" stroke="#60a5fa" stroke-opacity="0.25" stroke-width="1"/>
+  <text x="380" y="32" text-anchor="middle" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="13" font-weight="600" letter-spacing="0.08em">CONTEXTO DO PROJETO</text>
+  <g font-family="system-ui,sans-serif" font-size="13" font-weight="600" fill="#f8fafc">
+    <rect x="48" y="72" width="150" height="64" rx="8" fill="#2563eb" fill-opacity="0.12" stroke="#60a5fa" stroke-opacity="0.35"/>
+    <text x="123" y="100" text-anchor="middle">Tamanho</text>
+    <text x="123" y="118" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="500">do time</text>
+    <rect x="218" y="72" width="150" height="64" rx="8" fill="#2563eb" fill-opacity="0.12" stroke="#60a5fa" stroke-opacity="0.35"/>
+    <text x="293" y="100" text-anchor="middle">Fase do</text>
+    <text x="293" y="118" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="500">produto</text>
+    <rect x="388" y="72" width="150" height="64" rx="8" fill="#2563eb" fill-opacity="0.12" stroke="#60a5fa" stroke-opacity="0.35"/>
+    <text x="463" y="100" text-anchor="middle">Volume de</text>
+    <text x="463" y="118" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="500">usu&#225;rios</text>
+    <rect x="558" y="72" width="150" height="64" rx="8" fill="#2563eb" fill-opacity="0.12" stroke="#60a5fa" stroke-opacity="0.35"/>
+    <text x="633" y="100" text-anchor="middle">Or&#231;amento</text>
+    <text x="633" y="118" text-anchor="middle" fill="#94a3b8" font-size="11" font-weight="500">dispon&#237;vel</text>
+    <path d="M123 136 V168 H380" stroke="#60a5fa" stroke-width="2" fill="none"/>
+    <path d="M293 136 V156 H380" stroke="#60a5fa" stroke-width="2" fill="none"/>
+    <path d="M463 136 V156 H380" stroke="#60a5fa" stroke-width="2" fill="none"/>
+    <path d="M633 136 V168 H380" stroke="#60a5fa" stroke-width="2" fill="none"/>
+    <rect x="230" y="188" width="300" height="56" rx="28" fill="#2563eb"/>
+    <text x="380" y="214" text-anchor="middle" fill="#fff">Recomenda&#231;&#227;o de stack</text>
+    <text x="380" y="232" text-anchor="middle" fill="#dbeafe" font-size="11" font-weight="500">alinhada ao cen&#225;rio real</text>
+    <path d="M380 168 V188" stroke="#60a5fa" stroke-width="2" marker-end="url(#sde-pt-arrow)"/>
+  </g>
+</svg>

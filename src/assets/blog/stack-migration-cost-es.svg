@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 220" role="img" aria-label="Costo de migrar stack conforme madura el producto">
+  <defs>
+    <linearGradient id="smc-es-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1b2d"/>
+      <stop offset="100%" stop-color="#07111f"/>
+    </linearGradient>
+    <linearGradient id="smc-es-line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#60a5fa"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+  </defs>
+  <rect width="760" height="220" rx="12" fill="url(#smc-es-bg)" stroke="#60a5fa" stroke-opacity="0.25" stroke-width="1"/>
+  <text x="380" y="32" text-anchor="middle" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="13" font-weight="600" letter-spacing="0.08em">COSTO DE MIGRAR STACK</text>
+  <line x1="80" y1="170" x2="680" y2="170" stroke="#94a3b8" stroke-opacity="0.4" stroke-width="1"/>
+  <line x1="80" y1="60" x2="80" y2="170" stroke="#94a3b8" stroke-opacity="0.4" stroke-width="1"/>
+  <text x="80" y="190" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="11">Inicio</text>
+  <text x="380" y="190" text-anchor="middle" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="11">Producto con usuarios</text>
+  <text x="680" y="190" text-anchor="end" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="11">Escala e integraciones</text>
+  <text x="68" y="64" text-anchor="end" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="11">Alto</text>
+  <text x="68" y="170" text-anchor="end" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="11">Bajo</text>
+  <path d="M80 150 C200 145, 280 130, 380 95 S560 55, 680 48" fill="none" stroke="url(#smc-es-line)" stroke-width="3"/>
+  <circle cx="80" cy="150" r="5" fill="#60a5fa"/>
+  <circle cx="380" cy="95" r="5" fill="#a78bfa"/>
+  <circle cx="680" cy="48" r="5" fill="#ef4444"/>
+  <text x="100" y="138" fill="#60a5fa" font-family="system-ui,sans-serif" font-size="11" font-weight="600">Decisi&#243;n inicial</text>
+  <text x="400" y="82" fill="#c4b5fd" font-family="system-ui,sans-serif" font-size="11" font-weight="600">Retrabajo crece</text>
+  <text x="520" y="42" fill="#fca5a5" font-family="system-ui,sans-serif" font-size="11" font-weight="600">Migraci&#243;n cuesta caro</text>
+</svg>

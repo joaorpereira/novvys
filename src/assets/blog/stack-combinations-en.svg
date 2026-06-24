@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 360" role="img" aria-label="Stack combinations and use cases">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1b2d"/>
+      <stop offset="100%" stop-color="#07111f"/>
+    </linearGradient>
+  </defs>
+  <rect width="760" height="360" rx="12" fill="url(#bg)" stroke="rgba(96,165,250,0.25)" stroke-width="1"/>
+  <text x="380" y="32" text-anchor="middle" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="13" font-weight="600" letter-spacing="0.08em">COMMON COMBINATIONS</text>
+  <g font-family="system-ui,sans-serif">
+    <rect x="40" y="56" width="320" height="130" rx="10" fill="rgba(37,99,235,0.1)" stroke="rgba(96,165,250,0.35)"/>
+    <text x="60" y="84" fill="#60a5fa" font-size="12" font-weight="700">React + Node + PostgreSQL</text>
+    <text x="60" y="110" fill="#e2e8f0" font-size="13" font-weight="600">SaaS and corporate apps</text>
+    <text x="60" y="132" fill="#94a3b8" font-size="12">Lean team, fast delivery</text>
+    <text x="60" y="154" fill="#94a3b8" font-size="12">Moderate horizontal scale</text>
+    <rect x="400" y="56" width="320" height="130" rx="10" fill="rgba(37,99,235,0.1)" stroke="rgba(96,165,250,0.35)"/>
+    <text x="420" y="84" fill="#60a5fa" font-size="12" font-weight="700">Next.js + TypeScript</text>
+    <text x="420" y="110" fill="#e2e8f0" font-size="13" font-weight="600">SEO and performance</text>
+    <text x="420" y="132" fill="#94a3b8" font-size="12">Indexable content</text>
+    <text x="420" y="154" fill="#94a3b8" font-size="12">Fast page loads</text>
+    <rect x="40" y="206" width="320" height="130" rx="10" fill="rgba(37,99,235,0.1)" stroke="rgba(96,165,250,0.35)"/>
+    <text x="60" y="234" fill="#60a5fa" font-size="12" font-weight="700">Python + FastAPI</text>
+    <text x="60" y="260" fill="#e2e8f0" font-size="13" font-weight="600">APIs and data</text>
+    <text x="60" y="282" fill="#94a3b8" font-size="12">Data processing</text>
+    <text x="60" y="304" fill="#94a3b8" font-size="12">Model integration</text>
+    <rect x="400" y="206" width="320" height="130" rx="10" fill="rgba(37,99,235,0.1)" stroke="rgba(96,165,250,0.35)"/>
+    <text x="420" y="234" fill="#60a5fa" font-size="12" font-weight="700">React Native / Flutter</text>
+    <text x="420" y="260" fill="#e2e8f0" font-size="13" font-weight="600">Cross-platform mobile</text>
+    <text x="420" y="282" fill="#94a3b8" font-size="12">iOS and Android</text>
+    <text x="420" y="304" fill="#94a3b8" font-size="12">Single codebase</text>
+  </g>
+</svg>

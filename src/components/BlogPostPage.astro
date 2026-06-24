@@ -3,7 +3,7 @@ import type { Locale } from "../i18n/config";
 import { useTranslations, getBlogPath } from "../i18n";
 import type { BlogPost } from "../lib/blogPostContent";
 import { formatPostDate } from "../lib/blog";
-import BlogMarkdown from "./BlogMarkdown";
+import BlogContent from "./BlogContent.astro";
 
 interface Props {
   post: BlogPost;
@@ -49,7 +49,7 @@ const formattedDate = formatPostDate(
     </header>
 
     <div class="post-body reveal" style="--reveal-delay: 150ms">
-      <BlogMarkdown content={post.body} client:load />
+      <BlogContent content={post.body} />
     </div>
 
     <footer class="post-footer reveal" style="--reveal-delay: 250ms">

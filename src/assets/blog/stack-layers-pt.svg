@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 320" role="img" aria-label="Diagrama em camadas: linguagem, framework, banco de dados, infraestrutura e time">
+  <defs>
+    <linearGradient id="sl-pt-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0d1b2d"/>
+      <stop offset="100%" stop-color="#07111f"/>
+    </linearGradient>
+    <linearGradient id="sl-pt-accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563eb"/>
+      <stop offset="100%" stop-color="#1d4ed8"/>
+    </linearGradient>
+  </defs>
+  <rect width="760" height="320" rx="12" fill="url(#sl-pt-bg)" stroke="#60a5fa" stroke-opacity="0.25" stroke-width="1"/>
+  <text x="380" y="34" text-anchor="middle" fill="#94a3b8" font-family="system-ui,sans-serif" font-size="13" font-weight="600" letter-spacing="0.08em">O QUE A STACK DEFINE</text>
+  <rect x="64" y="56" width="632" height="44" rx="8" fill="#2563eb" fill-opacity="0.12" stroke="#60a5fa" stroke-opacity="0.35"/>
+  <circle cx="92" cy="78" r="10" fill="#2563eb" fill-opacity="0.35"/>
+  <path d="M86 81c0-2.2 1.8-4 4-4h4c2.2 0 4 1.8 4 4v1h-12v-1z" fill="#93c5fd"/>
+  <circle cx="94" cy="73" r="2.5" fill="#93c5fd"/>
+  <text x="116" y="82" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="14" font-weight="600">Time e processo</text>
+  <text x="676" y="82" text-anchor="end" fill="#60a5fa" font-family="system-ui,sans-serif" font-size="12">prazo e contrata&#231;&#227;o</text>
+  <rect x="64" y="108" width="632" height="44" rx="8" fill="#2563eb" fill-opacity="0.10" stroke="#60a5fa" stroke-opacity="0.30"/>
+  <path d="M78 128h12v8h-12z M84 124v-4h4v4" fill="none" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="116" y="134" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="14" font-weight="600">Infraestrutura e cloud</text>
+  <text x="676" y="134" text-anchor="end" fill="#60a5fa" font-family="system-ui,sans-serif" font-size="12">custo operacional</text>
+  <rect x="64" y="160" width="632" height="44" rx="8" fill="#2563eb" fill-opacity="0.08" stroke="#60a5fa" stroke-opacity="0.28"/>
+  <ellipse cx="88" cy="180" rx="8" ry="3" fill="none" stroke="#93c5fd" stroke-width="1.5"/>
+  <path d="M80 180v8c0 1.7 3.6 3 8 3s8-1.3 8-3v-8" fill="none" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="116" y="186" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="14" font-weight="600">Banco de dados</text>
+  <text x="676" y="186" text-anchor="end" fill="#60a5fa" font-family="system-ui,sans-serif" font-size="12">modelo de dados</text>
+  <rect x="64" y="212" width="632" height="44" rx="8" fill="#2563eb" fill-opacity="0.06" stroke="#60a5fa" stroke-opacity="0.25"/>
+  <rect x="80" y="226" width="16" height="16" rx="2" fill="none" stroke="#93c5fd" stroke-width="1.5"/>
+  <path d="M84 230h8M84 234h5" stroke="#93c5fd" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="116" y="238" fill="#f8fafc" font-family="system-ui,sans-serif" font-size="14" font-weight="600">Framework</text>
+  <text x="676" y="238" text-anchor="end" fill="#60a5fa" font-family="system-ui,sans-serif" font-size="12">velocidade de entrega</text>
+  <rect x="64" y="264" width="632" height="44" rx="8" fill="url(#sl-pt-accent)" stroke="#3b82f6"/>
+  <path d="M80 282l4-8h4l4 8M84 280h4" fill="none" stroke="#dbeafe" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="116" y="290" fill="#ffffff" font-family="system-ui,sans-serif" font-size="14" font-weight="600">Linguagem</text>
+  <text x="676" y="290" text-anchor="end" fill="#dbeafe" font-family="system-ui,sans-serif" font-size="12">base do c&#243;digo</text>
+</svg>
