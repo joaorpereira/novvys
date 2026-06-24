@@ -1,3 +1,5 @@
+<!-- Post desativado: fora do posts.json. Para republicar, adicione a entrada no manifesto. -->
+
 ---
 title: Arquitectura de microservicios: ¿cuándo tiene realmente sentido adoptarla?
 description: Los microservicios no son la solución para todo. Aprende cuándo esta arquitectura agrega valor y cuándo un monolito bien estructurado es la mejor elección.

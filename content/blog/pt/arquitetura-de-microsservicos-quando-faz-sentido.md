@@ -1,3 +1,5 @@
+<!-- Post desativado: fora do posts.json. Para republicar, adicione a entrada no manifesto. -->
+
 ---
 title: Arquitetura de microsserviços: quando realmente faz sentido adotar
 description: Microsserviços não são a solução para tudo. Saiba quando essa arquitetura agrega valor e quando um monólito bem estruturado é a melhor escolha.

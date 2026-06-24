@@ -1,3 +1,5 @@
+<!-- Post desativado: fora do posts.json. Para republicar, adicione a entrada no manifesto. -->
+
 ---
 title: Como usar dados e IA para tomar decisões estratégicas no seu negócio
 description: Explore como pipelines de dados, analytics e modelos de IA podem transformar informações brutas em vantagem competitiva real.

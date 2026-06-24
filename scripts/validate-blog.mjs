@@ -36,9 +36,8 @@ if (missingMd.length > 0) {
 }
 
 if (missingJson.length > 0) {
-  console.error("❌ content/blog/pt/ has .md files with no entry in posts.json:");
-  missingJson.forEach((s) => console.error(`   - ${s}`));
-  hasError = true;
+  console.warn("⚠️  content/blog/pt/ has .md files not listed in posts.json (inactive):");
+  missingJson.forEach((s) => console.warn(`   - ${s}`));
 }
 
 // Validate EN and ES folders — warn about slugs not in posts.json (orphaned translations)

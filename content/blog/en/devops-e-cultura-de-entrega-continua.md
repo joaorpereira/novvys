@@ -1,3 +1,5 @@
+<!-- Post desativado: fora do posts.json. Para republicar, adicione a entrada no manifesto. -->
+
 ---
 title: DevOps and Continuous Delivery Culture: From Theory to Practice
 description: Learn how to implement an effective DevOps culture, automate deployments, and reduce the time between idea and software in production.

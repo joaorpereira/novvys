@@ -1,3 +1,5 @@
+<!-- Post desativado: fora do posts.json. Para republicar, adicione a entrada no manifesto. -->
+
 ---
 title: Microservices Architecture: When Does It Really Make Sense to Adopt It?
 description: Microservices are not a solution for everything. Learn when this architecture adds value and when a well-structured monolith is the better choice.

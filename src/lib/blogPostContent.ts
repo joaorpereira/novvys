@@ -1,6 +1,9 @@
+import postsManifest from "../../content/blog/pt/posts.json";
 import { parseFrontmatter } from "./parseFrontmatter";
 import type { BlogPostMeta } from "./blog";
 import type { Locale } from "../i18n/config";
+
+const activeSlugs = new Set((postsManifest as BlogPostMeta[]).map((post) => post.slug));
 
 export interface BlogPost extends BlogPostMeta {
   body: string;
@@ -30,7 +33,9 @@ function slugFromPath(path: string): string {
 
 function buildPostMap(modules: Record<string, string>): Record<string, BlogPost> {
   return Object.fromEntries(
-    Object.entries(modules).map(([path, raw]) => {
+    Object.entries(modules)
+      .filter(([path]) => activeSlugs.has(slugFromPath(path)))
+      .map(([path, raw]) => {
       const { data, content } = parseFrontmatter(raw);
       const slug = slugFromPath(path);
       const post: BlogPost = {

@@ -1,3 +1,5 @@
+<!-- Post desativado: fora do posts.json. Para republicar, adicione a entrada no manifesto. -->
+
 ---
 title: How to Use Data and AI to Make Strategic Decisions in Your Business
 description: Explore how data pipelines, analytics, and AI models can transform raw information into real competitive advantage.

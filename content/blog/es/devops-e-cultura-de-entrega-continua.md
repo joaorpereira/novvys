@@ -1,3 +1,5 @@
+<!-- Post desativado: fora do posts.json. Para republicar, adicione a entrada no manifesto. -->
+
 ---
 title: DevOps y cultura de entrega continua: de la teoría a la práctica
 description: Aprende cómo implementar una cultura DevOps efectiva, automatizar deploys y reducir el tiempo entre la idea y el software en producción.
